@@ -1,0 +1,25 @@
+{
+  "name": "iWrite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "mongoose": "^5.11.12",
+    "nanoid": "^3.1.20",
+    "next": "^10.0.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2"
+  }
+}
