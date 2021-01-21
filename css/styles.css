@@ -279,13 +279,13 @@ button {
   background: linear-gradient(to bottom right, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1));
   backdrop-filter: blur(1rem);
   color: white;
-  -webkit-appearance: none;
+  -webkit-appearance: none !important;
 }
 
 .contact input:focus,
 .contact textarea:focus {
   border: 3px solid #3A86FF;
-  -webkit-appearance: none;
+  -webkit-appearance: none !important;
 }
 
 .contact textarea {
