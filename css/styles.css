@@ -285,6 +285,7 @@ button {
 .contact input:focus,
 .contact textarea:focus {
   border: 3px solid #3A86FF;
+  -webkit-appearance: none;
 }
 
 .contact textarea {
