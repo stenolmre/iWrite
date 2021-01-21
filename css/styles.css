@@ -279,6 +279,7 @@ button {
   background: linear-gradient(to bottom right, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1));
   backdrop-filter: blur(1rem);
   color: white;
+  -webkit-appearance: none;
 }
 
 .contact input:focus,
