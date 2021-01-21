@@ -10,7 +10,7 @@ export default async function (req, res) {
   if (!comment || !name) return res.status(401).json({ msg: 'Name and comment is required.' })
 
   try {
-    const poem = await Poem.findById(req.query)
+    const poem = await Poem.findById(id)
 
     if (!poem) return res.status(404).json({ msg: 'Poem not found.' })
 

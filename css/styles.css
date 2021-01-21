@@ -236,6 +236,69 @@ button {
   color: rgba(255, 255, 255, .4);
 }
 
+.poem hr {
+  width: 35px;
+  margin: 25px 0;
+}
+
+.poem_comments {
+  color: white;
+}
+
+.poem_comments input,
+.poem_comments textarea {
+  width: calc(100% - 20px);
+  margin: 5px 0 5px 0;
+  padding: 7px;
+  border: 3px solid rgba(255, 255, 255, .2);
+  border-radius: 4px;
+  outline: none;
+  background: #fff;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1));
+  background: -o-linear-gradient(left, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1));
+  backdrop-filter: blur(1rem);
+  color: white;
+  -webkit-appearance: none !important;
+  font-size: .875rem;
+}
+
+.poem_comments input:focus,
+.poem_comments textarea:focus {
+  border: 3px solid #3A86FF;
+  -webkit-appearance: none !important;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, .5);
+}
+
+.poem_comments textarea {
+  min-height: 25px;
+  resize: vertical;
+}
+
+.poem_comments button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 4px;
+  background: #1c1c1c;
+  color: white;
+  cursor: pointer;
+}
+
+.poem_comments button:disabled {
+  background: rgba(33, 33, 33, .4);
+  cursor: default;
+}
+
+.poem_comment {
+  margin: 5px 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, .05);
+  border-radius: 4px;
+}
+
 /* =======ADMIN=ADD=POST================================== */
 .admin {
   width: calc(90% - 40px);
@@ -300,9 +363,19 @@ button {
   border-radius: 4px;
   background: #1c1c1c;
   color: white;
+  cursor: pointer;
+}
+
+.contact button:disabled {
+  background: rgba(33, 33, 33, .4);
+  cursor: default;
 }
 
 .form_error {
   margin: 0 0 15px 0;
   color: #FFBE0B;
+}
+
+.form_success {
+  color: white;
 }

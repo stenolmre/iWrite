@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import Layout from './../components/layout'
@@ -18,15 +19,20 @@ const MyComponent = () => {
     getPoem(dispatchPoem, query.id)
   }, [dispatchPoem, query.id])
 
-  return <Layout>
-    <div className="poems">
-      {
-        loading
-          ? <Loader />
-          : poem && <Poem poem key={poem._id} id={poem._id} name={poem.name} date={new Date(poem.createdAt).toLocaleDateString()} text={poem.text} dispatchPoem={dispatchPoem}/>
-      }
-    </div>
-  </Layout>
+  return <Fragment>
+    <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"/>
+    </Head>
+    <Layout>
+      <div className="poems">
+        {
+          loading
+            ? <Loader />
+            : poem && <Poem key={poem._id} id={poem._id} name={poem.name} date={new Date(poem.createdAt).toLocaleDateString()} text={poem.text} dispatchPoem={dispatchPoem}/>
+        }
+      </div>
+    </Layout>
+  </Fragment>
 }
 
 export default MyComponent

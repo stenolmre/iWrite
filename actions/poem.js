@@ -72,3 +72,23 @@ export const addLike = async (dispatch, id, data) => {
     })
   }
 }
+
+export const addComment = async (dispatch, id, data) => {
+  const config = { headers: { 'Content-Type': 'application/json' } }
+
+  const body = JSON.stringify(data)
+
+  try {
+    const { data } = await axios.post(`/api/poem/comment?id=${id}`, body, config)
+
+    dispatch({
+      type: ADD_COMMENT,
+      payload: data
+    })
+  } catch (err) {
+    dispatch({
+      type: POEM_ERROR,
+      payload: err.response.data.msg
+    })
+  }
+}

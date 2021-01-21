@@ -8,11 +8,9 @@ import Poem from './../components/poem'
 import { usePoemState, usePoemDispatch } from './../context/poem'
 import { getPoems } from './../actions/poem'
 
-const Index = ({ likes }) => {
+const Index = () => {
   const { poems, loading } = usePoemState()
   const dispatchPoem = usePoemDispatch()
-
-  console.log(likes);
 
   useEffect(() => {
     getPoems(dispatchPoem)
