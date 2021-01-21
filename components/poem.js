@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+// import Cookies from 'js-cookie'
 
 import { addLike } from './../actions/poem'
 
@@ -24,9 +25,13 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
     return {__html: `${ text }`};
   }
 
-  const like = () => {
-    addLike(dispatchPoem, id, { like: true })
+  // const existingLikes = Cookies.get('likes') && JSON.parse(Cookies.get('likes'))
+
+  const like = async () => {
+    await addLike(dispatchPoem, id, { like: true })
   }
+
+  const arr = [id]
 
   return <div className="poem">
     {
@@ -43,13 +48,15 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
         : <div dangerouslySetInnerHTML={content()} className="poem-text"/>
     }
     <div className="poem-social">
-      <i className="far fa-heart" onClick={like}/>
+      <i className={`${arr.includes(id) ? 'fas' : 'far'} fa-heart`} onClick={like}/>
       {
         poem
           ? <Link href={`/${id}?c=true&${name.toLowerCase().replace(' ', '-')}`}><a>
               <i className="far fa-comment" />
             </a></Link>
-          : <i className="far fa-comment" onClick={() => setShowComments(!showComments)}/>
+          : showComments || query.c
+            ? <i className="fas fa-comment" onClick={() => setShowComments(!showComments)}/>
+            : <i className="far fa-comment" onClick={() => setShowComments(!showComments)}/>
       }
       <i className="fab fa-facebook-f"/>
       <i className="fas fa-link" onClick={linkIsCopied}/>

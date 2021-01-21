@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import Cookies from 'js-cookie'
 
 import Layout from './../components/layout'
 import Loader from './../components/loader'
