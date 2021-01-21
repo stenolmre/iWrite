@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
+import Head from 'next/head'
 
 import Layout from './../components/layout'
 
@@ -35,19 +36,24 @@ const Contact = () => {
     }
   }
 
-  return <Layout>
-    <div className="contact">
-      <h2>Let's Talk</h2>
-      <label>Email</label>
-      <input name="email" value={formData.email} onChange={onChange}/>
-      <p className="form_error">{error.email}</p>
-      <label>Message</label>
-      <textarea name="message" value={formData.message} onChange={onChange}/>
-      <p className="form_error">{error.message}</p>
-      <button onClick={send}>Send</button>
-      <p>{error.error}</p>
-    </div>
-  </Layout>
+  return <Fragment>
+    <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"/>
+    </Head>
+    <Layout>
+      <div className="contact">
+        <h2>Let's Talk</h2>
+        <label>Email</label>
+        <input name="email" value={formData.email} onChange={onChange}/>
+        <p className="form_error">{error.email}</p>
+        <label>Message</label>
+        <textarea name="message" value={formData.message} onChange={onChange}/>
+        <p className="form_error">{error.message}</p>
+        <button onClick={send}>Send</button>
+        <p>{error.error}</p>
+      </div>
+    </Layout>
+  </Fragment>
 }
 
 export default Contact
