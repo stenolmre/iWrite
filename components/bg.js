@@ -2,37 +2,38 @@ import React from 'react'
 
 const Background = () => {
   return <svg className="desktop_bg" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clipPath="url(#clip0)">
+    <g clip-path="url(#clip0)">
       <rect width="1440" height="1024" fill="url(#paint0_linear)"/>
       <g filter="url(#filter0_f)">
-        <circle cx="449" cy="472" r="361" fill="url(#paint1_linear)"/>
+        <circle cx="434.338" cy="86.3382" r="442.831" transform="rotate(-34.7887 434.338 86.3382)" fill="url(#paint1_linear)"/>
       </g>
       <g filter="url(#filter1_f)">
-        <circle cx="1217.32" cy="685.302" r="534.504" transform="rotate(-165.95 1217.32 685.302)" fill="url(#paint2_linear)"/>
+        <circle cx="1134.61" cy="702.611" r="416.604" transform="rotate(-7.85178 1134.61 702.611)" fill="url(#paint2_linear)"/>
       </g>
     </g>
     <defs>
-      <filter id="filter0_f" x="-12" y="11" width="922" height="922" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-        <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+      <filter id="filter0_f" x="-282" y="-630" width="1432.68" height="1432.68" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
         <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur"/>
       </filter>
-      <filter id="filter1_f" x="469.047" y="-62.9715" width="1496.55" height="1496.55" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-        <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+      <filter id="filter1_f" x="565" y="133" width="1139.22" height="1139.22" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
         <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur"/>
       </filter>
       <linearGradient id="paint0_linear" x1="0" y1="0" x2="1440" y2="1037" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#B06AB3"/>
-        <stop offset="1" stopColor="#4568DC"/>
+        <stop stop-color="#FF2CDF"/>
+        <stop offset="0.421875" stop-color="#7C20F0"/>
+        <stop offset="1" stop-color="#0014FF"/>
       </linearGradient>
-      <linearGradient id="paint1_linear" x1="386.5" y1="198.5" x2="593" y2="778.5" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#B06AB3" stopOpacity="0.8"/>
-        <stop offset="1" stopColor="#4568DC" stopOpacity="0.2"/>
+      <linearGradient id="paint1_linear" x1="357.671" y1="-249.158" x2="610.98" y2="462.315" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FF009C" stop-opacity="0.47"/>
+        <stop offset="1" stop-color="#7C20F0" stop-opacity="0.4"/>
       </linearGradient>
-      <linearGradient id="paint2_linear" x1="1124.78" y1="280.352" x2="1430.53" y2="1139.11" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#B06AB3" stopOpacity="0.6"/>
-        <stop offset="1" stopColor="#4568DC" stopOpacity="0.4"/>
+      <linearGradient id="paint2_linear" x1="1062.48" y1="386.984" x2="1300.79" y2="1056.32" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#7C20F0" stop-opacity="0.6"/>
+        <stop offset="1" stop-color="#0014FF" stop-opacity="0.4"/>
       </linearGradient>
       <clipPath id="clip0">
         <rect width="1440" height="1024" fill="white"/>

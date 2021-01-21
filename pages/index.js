@@ -1,21 +1,32 @@
-import React from 'react'
-import Background from './../components/bg'
-import PhoneBackground from './../components/bg_phone'
+import React, { useEffect } from 'react'
+import Cookies from 'cookies'
+
+import Layout from './../components/layout'
+import Loader from './../components/loader'
 import Poem from './../components/poem'
 
-const Index = () => {
-  return <div className="index">
-    <Background />
-    <PhoneBackground />
-    <div className="content">
-      <Poem />
-      <Poem />
+import { usePoemState, usePoemDispatch } from './../context/poem'
+import { getPoems } from './../actions/poem'
+
+const Index = ({ likes }) => {
+  const { poems, loading } = usePoemState()
+  const dispatchPoem = usePoemDispatch()
+
+  console.log(likes);
+
+  useEffect(() => {
+    getPoems(dispatchPoem)
+  }, [dispatchPoem])
+
+  return <Layout sidebarpoem>
+    <div className="poems">
+      {
+        loading
+          ? <Loader />
+          : poems && poems.map(el => <Poem poem key={el._id} id={el._id} name={el.name} date={new Date(el.createdAt).toLocaleDateString()} text={el.text} dispatchPoem={dispatchPoem}/>)
+      }
     </div>
-  </div>
+  </Layout>
 }
 
 export default Index
-
-// Index.getInitialProps = async ctx => {
-//   return {}
-// }
