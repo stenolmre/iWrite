@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react'
-import Head from 'next/head'
+import Head from './../utils/head'
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 
@@ -21,9 +21,7 @@ const MyComponent = () => {
   }, [dispatchPoem, query.id])
 
   return <Fragment>
-    <Head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"/>
-    </Head>
+    <Head title="iWrite" url="https://www.iwrite.im/"/>
     <Layout>
       <div className="poems">
         {

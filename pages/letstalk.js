@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import Head from 'next/head'
 import emailjs from 'emailjs-com'
+import Head from './../utils/head'
 
 import Layout from './../components/layout'
 
@@ -56,7 +57,7 @@ const Contact = () => {
 
   return <Fragment>
     <Head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"/>
+      <Head title="iWrite - Let's Talk" url="https://www.iwrite.im/letstalk"/>
     </Head>
     <Layout>
       <div className="contact">

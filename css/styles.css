@@ -276,6 +276,8 @@ button {
 .poem_comments textarea {
   min-height: 25px;
   resize: vertical;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .875rem;
 }
 
 .poem_comments button {
