@@ -31,13 +31,21 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
   }
 
   const like = async () => {
-    await addLike(dispatchPoem, id, { like: true })
-    await addToLikes(dispatchLike, id)
+    try {
+      await addLike(dispatchPoem, id, { like: true })
+      await addToLikes(dispatchLike, id)
+    } catch (err) {
+      return <pre>{err}</pre>
+    }
   }
 
   const unlike = async () => {
-    await removeLike(dispatchPoem, id)
-    await removeFromLikes(dispatchLike, id)
+    try {
+      await removeLike(dispatchPoem, id)
+      await removeFromLikes(dispatchLike, id)
+    } catch (err) {
+      return <pre>{err}</pre>
+    }
   }
 
   return <div className="poem">
