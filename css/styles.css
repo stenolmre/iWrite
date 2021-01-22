@@ -89,32 +89,76 @@ button:disabled {
   background: #1c1c1c;
 }
 
-.index {
+.index_mobile {
   width: 100%;
   min-height: 100vh;
   background: #8338EC;
 }
 
-@media (min-width: 480px) {
-  .index {
-    width: 450px;
-    margin-left: calc(50% - 225px);
-  }
-}
-
-/* .bg_phone {
+.index_desktop {
   display: none;
 }
 
-@media (max-width: 480px) {
-  .desktop_bg {
+@media (min-width: 480px) {
+  .index_mobile {
     display: none;
   }
 
-  .bg_phone {
+  .index_desktop {
     display: block;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 275px auto;
+    background: #8338EC;
   }
-} */
+}
+
+/* =======NAVBAR========================================== */
+nav {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  nav {
+    display: block;
+    width: calc(100% - 100px);
+    height: 100px;
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, .05);
+    color: white;
+  }
+
+  nav a {
+    color: white;
+    margin-right: 15px;
+    position: relative;
+  }
+
+  .active_nav::after {
+    content: '_';
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 900;
+  }
+
+  .navbar_search input {
+    width: 175px;
+    margin: 0;
+    padding-left: 30px;
+  }
+
+  .navbar_search i {
+    margin-right: -25px;
+    position: relative;
+    z-index: 2;
+    color: rgba(255, 255, 255, .4);
+  }
+}
 
 /* =======SIDEBAR========================================= */
 .sidebar {
@@ -125,21 +169,30 @@ button:disabled {
   backdrop-filter: blur(.2rem);
   clip-path: polygon(0 0, 100% 0, 100% 87%, 0% 100%);
   color: white;
+  position: relative;
 }
 
-@media (max-width: 480px) {
+@media (min-width: 480px) {
   .sidebar {
-    height: 100%;
+    min-height: calc(100vh - 25px);
+    padding: 0 25px 0 25px;
+    clip-path: polygon(0 0, 100% 0, 100% 1000%, 0% 100%);
   }
 }
 
-.sidebar div {
+.sidebar .sidebar_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.sidebar div img {
+@media (min-width: 480px) {
+  .sidebar .sidebar_header {
+    height: 100px;
+  }
+}
+
+.sidebar .sidebar_header img {
   width: 35px;
   height: 35px;
   border-radius: 100%;
@@ -173,8 +226,7 @@ button:disabled {
 
 @media (min-width: 480px) {
   .footbar {
-    width: 450px;
-    left: calc(50% - 225px);
+    display: none;
   }
 }
 
@@ -218,16 +270,16 @@ button:disabled {
 
 /* =======POEMS=LAYOUT==================================== */
 .poems {
-  padding: 50px 0 125px 0;
+  padding: 50px 25px 125px 25px;
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 /* =======POEM=LAYOUT===================================== */
 .poem {
-  width: 325px;
+  width: auto;
   margin: 10px;
   padding: 10px 20px;
   border-radius: 24px;
@@ -346,6 +398,13 @@ button:disabled {
 .contact {
   padding: 50px 25px 125px 25px;
   color: white;
+}
+
+@media (min-width: 480px) {
+  .contact {
+    width: 350px;
+    padding-left: 35px;
+  }
 }
 
 .contact textarea {

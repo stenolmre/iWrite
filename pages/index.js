@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import Head from './../utils/head'
 
 import Layout from './../components/layout'
@@ -16,14 +16,16 @@ const Index = () => {
     getPoems(dispatchPoem)
   }, [dispatchPoem])
 
+  const [search, setSearch] = useState('')
+
   return <Fragment>
     <Head title="iWrite" url="https://www.iwrite.im"/>
-    <Layout sidebarpoem>
+    <Layout sidebarpoem isSearch search={e => setSearch(e.target.value)}>
       <div className="poems">
         {
           loading
-            ? <Loader />
-            : poems && poems.map(el => <Poem poem key={el._id} id={el._id} name={el.name} date={new Date(el.createdAt).toLocaleDateString()} text={el.text} dispatchPoem={dispatchPoem} linkName={el.name.toLowerCase().replace(' ', '-')}/>)
+            ? <Loader/>
+            : poems && poems.filter(el => el.name.toLowerCase().includes(search.toLowerCase())).map(el => <Poem poem key={el._id} id={el._id} name={el.name} date={new Date(el.createdAt).toLocaleDateString()} text={el.text} dispatchPoem={dispatchPoem} linkName={el.name.toLowerCase().replace(' ', '-')}/>)
         }
       </div>
     </Layout>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Sidebar = ({ sidebarpoem }) => {
   return <div className="sidebar">
-    <div>
+    <div className="sidebar_header">
       <h1>iWrite</h1>
       <img src="/img.jpg" alt="author" />
     </div>
