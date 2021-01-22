@@ -24,7 +24,7 @@ const Index = () => {
         {
           loading
             ? <Loader />
-            : poems && poems.map(el => <Poem poem key={el._id} id={el._id} name={el.name} date={new Date(el.createdAt).toLocaleDateString()} text={el.text} dispatchPoem={dispatchPoem}/>)
+            : poems && poems.map(el => <Poem poem key={el._id} id={el._id} name={el.name} date={new Date(el.createdAt).toLocaleDateString()} text={el.text} dispatchPoem={dispatchPoem} linkName={el.name.toLowerCase().replace(' ', '-')}/>)
         }
       </div>
     </Layout>

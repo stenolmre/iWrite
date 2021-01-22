@@ -8,7 +8,7 @@ import { addLike, removeLike } from './../actions/poem'
 
 import Comments from './comments'
 
-const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
+const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName }) => {
   const { query } = useRouter()
 
   const { likes } = useLikeState()
@@ -18,7 +18,7 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
   const [showComments, setShowComments] = useState(false)
 
   const linkIsCopied = () => {
-    navigator.clipboard.writeText(`https://iwrite.vercel.app/${id}?${name.replace(' ', '-')}`)
+    navigator.clipboard.writeText(`https://iwrite.vercel.app/${id}?${linkName}`)
     setShowCopyMessage(true)
 
     setTimeout(() => {
@@ -35,7 +35,7 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
       await addLike(dispatchPoem, id, { like: true })
       await addToLikes(dispatchLike, id)
     } catch (err) {
-      return <pre>{err}</pre>
+      console.log(err)
     }
   }
 
@@ -44,20 +44,20 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
       await removeLike(dispatchPoem, id)
       await removeFromLikes(dispatchLike, id)
     } catch (err) {
-      return <pre>{err}</pre>
+      console.log(err)
     }
   }
 
   return <div className="poem">
     {
       poem
-        ? <Link href={`/${id}?${name.replace(' ', '-')}`}><a><h1>{ name }</h1></a></Link>
+        ? <Link href={`/${id}?${linkName}`}><a><h1>{ name }</h1></a></Link>
         : <h1>{ name }</h1>
     }
     <small>{ date }</small>
     {
       poem
-        ? <Link href={`/${id}?${name.replace(' ', '-')}`}><a>
+        ? <Link href={`/${id}?${linkName}`}><a>
             <div dangerouslySetInnerHTML={content()} className="poem-text"/>
           </a></Link>
         : <div dangerouslySetInnerHTML={content()} className="poem-text"/>
@@ -70,14 +70,14 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
       }
       {
         poem
-          ? <Link href={`/${id}?c=true&${name.replace(' ', '-')}`}><a>
+          ? <Link href={`/${id}?c=true&${linkName}`}><a>
               <i className="far fa-comment" />
             </a></Link>
           : showComments || query.c
             ? <i className="fas fa-comment" onClick={() => setShowComments(!showComments)}/>
             : <i className="far fa-comment" onClick={() => setShowComments(!showComments)}/>
       }
-      <a href={`https://www.facebook.com/sharer.php?u=https://iwrite.vercel.app/${id}?${name.replace(' ', '-')}`} data-width="300" data-height="400" target="_blank" rel="noreferrer noopener">
+      <a href={`https://www.facebook.com/sharer.php?u=https://iwrite.vercel.app/${id}?${linkName}`} data-width="300" data-height="400" target="_blank" rel="noreferrer noopener">
         <i className="fab fa-facebook-f"/>
       </a>
       <i className="fas fa-link" onClick={linkIsCopied}/>
