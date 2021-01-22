@@ -30,7 +30,7 @@ const Comments = () => {
     }
     <hr/>
     {
-      poem.comments.length > 1
+      poem.comments.length > 0
         ? poem.comments.map(el => <p key={el._id} className="poem_comment">{el.comment}</p>)
         : <p>No comments.</p>
     }
