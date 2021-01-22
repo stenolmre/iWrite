@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react'
-import Head from 'next/head'
 import emailjs from 'emailjs-com'
 import Head from './../utils/head'
 
