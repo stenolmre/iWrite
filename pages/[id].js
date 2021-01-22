@@ -27,7 +27,7 @@ const MyComponent = () => {
         {
           loading
             ? <Loader />
-            : poem && <Poem key={poem._id} id={poem._id} name={poem.name} date={new Date(poem.createdAt).toLocaleDateString()} text={poem.text} dispatchPoem={dispatchPoem}/>
+            : poem && <Poem key={poem._id} id={poem._id} name={poem.name} date={new Date(poem.createdAt).toLocaleDateString()} text={poem.text} dispatchPoem={dispatchPoem} linkName={el.name.toLowerCase().replace(' ', '-')}/>
         }
       </div>
     </Layout>
