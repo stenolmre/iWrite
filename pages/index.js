@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect } from 'react'
-import Cookies from 'cookies'
 import Head from './../utils/head'
 
 import Layout from './../components/layout'

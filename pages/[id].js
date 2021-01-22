@@ -27,7 +27,7 @@ const PoemPage = ({ poem_name }) => {
         {
           loading
             ? <Loader />
-            : poem && <Poem key={poem._id} id={poem._id} name={poem.name} date={new Date(poem.createdAt).toLocaleDateString()} text={poem.text} dispatchPoem={dispatchPoem} linkName={poem.name.toLowerCase().replace(' ', '-')} poemData={poem}/>
+            : poem && <Poem key={poem._id} id={poem._id} name={poem.name} date={new Date(poem.createdAt).toLocaleDateString()} text={poem.text} dispatchPoem={dispatchPoem} linkName={poem_name.toLowerCase().replace(' ', '-')} poemData={poem}/>
         }
       </div>
     </Layout>
