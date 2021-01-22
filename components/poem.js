@@ -18,7 +18,7 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
   const [showComments, setShowComments] = useState(false)
 
   const linkIsCopied = () => {
-    navigator.clipboard.writeText(`https://iwrite.vercel.app/${id}?${name.toLowerCase().replace(' ', '-')}`)
+    navigator.clipboard.writeText(`https://iwrite.vercel.app/${id}?${name.replace(' ', '-')}`)
     setShowCopyMessage(true)
 
     setTimeout(() => {
@@ -43,13 +43,13 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
   return <div className="poem">
     {
       poem
-        ? <Link href={`/${id}?${name.toLowerCase().replace(' ', '-')}`}><a><h1>{ name }</h1></a></Link>
+        ? <Link href={`/${id}?${name.replace(' ', '-')}`}><a><h1>{ name }</h1></a></Link>
         : <h1>{ name }</h1>
     }
     <small>{ date }</small>
     {
       poem
-        ? <Link href={`/${id}?${name.toLowerCase().replace(' ', '-')}`}><a>
+        ? <Link href={`/${id}?${name.replace(' ', '-')}`}><a>
             <div dangerouslySetInnerHTML={content()} className="poem-text"/>
           </a></Link>
         : <div dangerouslySetInnerHTML={content()} className="poem-text"/>
@@ -62,14 +62,14 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
       }
       {
         poem
-          ? <Link href={`/${id}?c=true&${name.toLowerCase().replace(' ', '-')}`}><a>
+          ? <Link href={`/${id}?c=true&${name.replace(' ', '-')}`}><a>
               <i className="far fa-comment" />
             </a></Link>
           : showComments || query.c
             ? <i className="fas fa-comment" onClick={() => setShowComments(!showComments)}/>
             : <i className="far fa-comment" onClick={() => setShowComments(!showComments)}/>
       }
-      <a href={`https://www.facebook.com/sharer.php?u=https://iwrite.vercel.app/${id}?${name.toLowerCase().replace(' ', '-')}`} data-width="300" data-height="400" target="_blank" rel="noreferrer noopener">
+      <a href={`https://www.facebook.com/sharer.php?u=https://iwrite.vercel.app/${id}?${name.replace(' ', '-')}`} data-width="300" data-height="400" target="_blank" rel="noreferrer noopener">
         <i className="fab fa-facebook-f"/>
       </a>
       <i className="fas fa-link" onClick={linkIsCopied}/>
