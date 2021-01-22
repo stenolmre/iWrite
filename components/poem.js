@@ -8,7 +8,7 @@ import { addLike, removeLike } from './../actions/poem'
 
 import Comments from './comments'
 
-const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName }) => {
+const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData }) => {
   const { query } = useRouter()
 
   const { likes } = useLikeState()
@@ -91,11 +91,11 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName }) => {
         : query.c
           ? <Fragment>
               <hr/>
-              <Comments />
+              <Comments poem={poemData}/>
             </Fragment>
           : showComments && <Fragment>
               <hr/>
-              <Comments />
+              <Comments poem={poemData}/>
             </Fragment>
     }
   </div>

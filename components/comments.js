@@ -3,8 +3,7 @@ import React, { useState } from 'react'
 import { usePoemState, usePoemDispatch } from './../context/poem'
 import { addComment } from './../actions/poem'
 
-const Comments = () => {
-  const { poem } = usePoemState()
+const Comments = ({ poem }) => {
   const dispatchPoem = usePoemDispatch()
 
   const [formData, setFormData] = useState({ name: '', comment: '' })
@@ -18,6 +17,7 @@ const Comments = () => {
       setFormData({ name: '', comment: '' })
     } catch (err) {
       setError({ ...error, error: true })
+      console.log(err);
     }
   }
 
@@ -26,7 +26,7 @@ const Comments = () => {
     <textarea name="comment" value={formData.comment} onChange={onChange} placeholder="comment"/>
     <button disabled={formData.name === '' || formData.comment === ''} onClick={comment}>Comment</button>
     {
-      error.error && <p classsName="form_error">{error.message}</p>
+      error.error && <p style={{margin: '15px 0 0 0'}} className="form_error">{error.message}</p>
     }
     <hr/>
     {
