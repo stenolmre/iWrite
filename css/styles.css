@@ -49,6 +49,13 @@ button {
   background: #8338EC;
 }
 
+@media (min-width: 480px) {
+  .index {
+    width: 450px;
+    margin-left: calc(50% - 225px);
+  }
+}
+
 /* .bg_phone {
   display: none;
 }
@@ -66,7 +73,7 @@ button {
 /* =======SIDEBAR========================================= */
 .sidebar {
   width: calc(100% - 50px);
-  height: calc(100vh - 50px);
+  height: 100%;
   padding: 25px;
   background: #1c1c1c;
   backdrop-filter: blur(.2rem);
@@ -116,6 +123,13 @@ button {
   justify-content: center;
   background: #1c1c1c;
   border-radius: 100% 100% 0 0;
+}
+
+@media (min-width: 480px) {
+  .footbar {
+    width: 450px;
+    left: calc(50% - 225px);
+  }
 }
 
 .footbar a {
