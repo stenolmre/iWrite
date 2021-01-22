@@ -1,14 +1,14 @@
 import React, { Fragment, useEffect } from 'react'
-import Head from './../utils/head'
+import Head from './../../utils/head'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 
-import Layout from './../components/layout'
-import Loader from './../components/loader'
-import Poem from './../components/poem'
+import Layout from './../../components/layout'
+import Loader from './../../components/loader'
+import Poem from './../../components/poem'
 
-import { usePoemState, usePoemDispatch } from './../context/poem'
-import { getPoem } from './../actions/poem'
+import { usePoemState, usePoemDispatch } from './../../context/poem'
+import { getPoem } from './../../actions/poem'
 
 const PoemPage = ({ poem_name }) => {
   const { query } = useRouter()

@@ -8,7 +8,6 @@ export default function MetaTags({ title, url }) {
     <meta name="description" content="iWrite purpose is to offer you a flight across the space created in one's mind."/>
     <meta name="image" content="share_image.jpg"/>
     <meta name="keywords" content="Poetry, Novels, Toska, Feelings, Words"/>
-    <link rel="shortcut icon" type="image/x-icon" href="icon.png" />
     <meta property="og:title" content={title}/>
     <meta property="og:description" content="iWrite purpose is to offer you a flight across the space created in one's mind."/>
     <meta property="og:image" content="share_image.jpg"/>

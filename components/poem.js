@@ -18,7 +18,7 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData }) 
   const [showComments, setShowComments] = useState(false)
 
   const linkIsCopied = () => {
-    navigator.clipboard.writeText(`https://iwrite.vercel.app/${id}?${linkName}`)
+    navigator.clipboard.writeText(`https://iwrite.im/${id}?${linkName}`)
     setShowCopyMessage(true)
 
     setTimeout(() => {
@@ -51,13 +51,13 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData }) 
   return <div className="poem">
     {
       poem
-        ? <Link href={`/${id}?${linkName}`}><a><h1>{ name }</h1></a></Link>
+        ? <Link href={`/poem/${id}?${linkName}`}><a><h1>{ name }</h1></a></Link>
         : <h1>{ name }</h1>
     }
     <small>{ date }</small>
     {
       poem
-        ? <Link href={`/${id}?${linkName}`}><a>
+        ? <Link href={`/poem/${id}?${linkName}`}><a>
             <div dangerouslySetInnerHTML={content()} className="poem-text"/>
           </a></Link>
         : <div dangerouslySetInnerHTML={content()} className="poem-text"/>
@@ -70,14 +70,14 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData }) 
       }
       {
         poem
-          ? <Link href={`/${id}?c=true&${linkName}`}><a>
+          ? <Link href={`/poem/${id}?c=true&${linkName}`}><a>
               <i className="far fa-comment" />
             </a></Link>
           : showComments || query.c
             ? <i className="fas fa-comment" onClick={() => setShowComments(!showComments)}/>
             : <i className="far fa-comment" onClick={() => setShowComments(!showComments)}/>
       }
-      <a href={`https://www.facebook.com/sharer.php?u=https://iwrite.vercel.app/${id}?${linkName}`} data-width="300" data-height="400" target="_blank" rel="noreferrer noopener">
+      <a href={`https://www.facebook.com/sharer.php?u=https://iwrite.im/${id}?${linkName}`} data-width="300" data-height="400" target="_blank" rel="noreferrer noopener">
         <i className="fab fa-facebook-f"/>
       </a>
       <i className="fas fa-link" onClick={linkIsCopied}/>

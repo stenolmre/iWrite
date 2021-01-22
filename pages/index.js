@@ -21,9 +21,9 @@ const Index = () => {
     <Layout sidebarpoem search={e => setSearch(e.target.value)}>
       <div className="poems">
         {
-          loading && !poems
+          loading
             ? <Loader/>
-            : poems.filter(el => el.name.toLowerCase().includes(search.toLowerCase())).map(el => <Poem poem
+            : poems && poems.filter(el => el.name.toLowerCase().includes(search.toLowerCase())).map(el => <Poem poem
               key={el._id}
               id={el._id}
               name={el.name}

@@ -277,6 +277,12 @@ nav {
   flex-wrap: wrap;
 }
 
+@media (max-width: 480px) {
+  .poems {
+    justify-content: center;
+  }
+}
+
 /* =======POEM=LAYOUT===================================== */
 .poem {
   width: auto;
