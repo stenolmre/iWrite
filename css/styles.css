@@ -260,7 +260,7 @@ button {
   backdrop-filter: blur(1rem);
   color: white;
   -webkit-appearance: none !important;
-  font-size: .875rem;
+  font-size: 16px;
 }
 
 .poem_comments input:focus,
@@ -321,10 +321,10 @@ button {
   color: white;
 }
 
-.contact input,
-.contact textarea,
-.contact label,
-.contact button {
+input,
+textarea,
+label,
+button {
   font-family: 'Montserrat', sans-serif;
 }
 
