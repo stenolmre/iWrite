@@ -1,19 +1,24 @@
 import React, { Fragment, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-// import Cookies from 'js-cookie'
 
-import { addLike } from './../actions/poem'
+import { useLikeState, useLikeDispatch } from './../context/like'
+import { addToLikes, removeFromLikes } from './../actions/like'
+import { addLike, removeLike } from './../actions/poem'
 
 import Comments from './comments'
 
 const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
   const { query } = useRouter()
 
+  const { likes } = useLikeState()
+  const dispatchLike = useLikeDispatch()
+
   const [showCopyMessage, setShowCopyMessage] = useState(false)
   const [showComments, setShowComments] = useState(false)
 
   const linkIsCopied = () => {
+    navigator.clipboard.writeText(`https://iwrite.vercel.app/${id}?${name.toLowerCase().replace(' ', '-')}`)
     setShowCopyMessage(true)
 
     setTimeout(() => {
@@ -25,13 +30,15 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
     return {__html: `${ text }`};
   }
 
-  // const existingLikes = Cookies.get('likes') && JSON.parse(Cookies.get('likes'))
-
   const like = async () => {
     await addLike(dispatchPoem, id, { like: true })
+    await addToLikes(dispatchLike, id)
   }
 
-  const arr = [id]
+  const unlike = async () => {
+    await removeLike(dispatchPoem, id)
+    await removeFromLikes(dispatchLike, id)
+  }
 
   return <div className="poem">
     {
@@ -48,7 +55,11 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
         : <div dangerouslySetInnerHTML={content()} className="poem-text"/>
     }
     <div className="poem-social">
-      <i className={`${arr.includes(id) ? 'fas' : 'far'} fa-heart`} onClick={like}/>
+      {
+        likes && likes.includes(id)
+          ? <i className="fas fa-heart" onClick={unlike}/>
+          : <i className="far fa-heart" onClick={like}/>
+      }
       {
         poem
           ? <Link href={`/${id}?c=true&${name.toLowerCase().replace(' ', '-')}`}><a>
@@ -58,7 +69,9 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem }) => {
             ? <i className="fas fa-comment" onClick={() => setShowComments(!showComments)}/>
             : <i className="far fa-comment" onClick={() => setShowComments(!showComments)}/>
       }
-      <i className="fab fa-facebook-f"/>
+      <a href={`https://www.facebook.com/sharer.php?u=https://iwrite.vercel.app/${id}?${name.toLowerCase().replace(' ', '-')}`} data-width="300" data-height="400" target="_blank" rel="noreferrer noopener">
+        <i className="fab fa-facebook-f"/>
+      </a>
       <i className="fas fa-link" onClick={linkIsCopied}/>
       {
         showCopyMessage && <span>Copied to clipboard</span>

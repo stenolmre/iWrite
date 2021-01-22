@@ -23,7 +23,7 @@ export const addPoem = async (dispatch, data) => {
 
 export const getPoem = async (dispatch, id) => {
   try {
-    const { data } = await axios.post(`/api/poem/get?id=${id}`)
+    const { data } = await axios.get(`/api/poem/get?id=${id}`)
 
     dispatch({
       type: GET_POEM,
@@ -39,7 +39,7 @@ export const getPoem = async (dispatch, id) => {
 
 export const getPoems = async (dispatch) => {
   try {
-    const { data } = await axios.post('/api/poem/_get')
+    const { data } = await axios.get('/api/poem/_get')
 
     dispatch({
       type: GET_POEMS,
@@ -59,10 +59,26 @@ export const addLike = async (dispatch, id, data) => {
   const body = JSON.stringify(data)
 
   try {
-    const { data } = await axios.post(`/api/poem/like?id=${id}`, body, config)
+    const { data } = await axios.put(`/api/poem/like?id=${id}`, body, config)
 
     dispatch({
       type: ADD_LIKE,
+      payload: data
+    })
+  } catch (err) {
+    dispatch({
+      type: POEM_ERROR,
+      payload: err.response.data.msg
+    })
+  }
+}
+
+export const removeLike = async (dispatch, id) => {
+  try {
+    const { data } = await axios.put(`/api/poem/unlike?id=${id}`)
+
+    dispatch({
+      type: REMOVE_LIKE,
       payload: data
     })
   } catch (err) {
