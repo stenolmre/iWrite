@@ -15,3 +15,7 @@ export const LOAD_USER = 'LOAD_USER'
 export const LOGIN_USER = 'LOGIN_USER'
 export const LOGOUT_USER = 'LOGOUT_USER'
 export const USER_ERROR = 'USER_ERROR'
+
+export const SUBSCRIBE = 'SUBSCRIBE'
+export const GET_SUBSCRIBERS = 'GET_SUBSCRIBERS'
+export const SUBSCRIBER_ERROR = 'SUBSCRIBER_ERROR'

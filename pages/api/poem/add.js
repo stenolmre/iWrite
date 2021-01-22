@@ -6,10 +6,10 @@ connectDB()
 export default async function (req, res) {
   const { name, text } = req.body
 
+  if (!text) return res.status(401).json({ msg: 'Please add content to this post.' })
+
   try {
     const poem = new Poem(req.body)
-
-    if (!text) return res.status(401).json({ msg: 'Please add content to this post.' })
 
     await poem.save()
 

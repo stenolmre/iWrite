@@ -59,6 +59,7 @@ button {
   color: white;
   cursor: pointer;
   outline: none;
+  font-size: .85rem;
 }
 
 button:disabled {
@@ -121,9 +122,10 @@ nav {
 @media (min-width: 480px) {
   nav {
     display: block;
-    width: calc(100% - 100px);
+    width: calc(100% - 0);
     height: 100px;
-    padding: 0 50px;
+    margin-left: -100px;
+    padding: 0 50px 0 150px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -177,6 +179,7 @@ nav {
     min-height: calc(100vh - 25px);
     padding: 0 25px 0 25px;
     clip-path: polygon(0 0, 100% 0, 100% 1000%, 0% 100%);
+    border-radius: 0 50px 50px 0;
   }
 }
 
@@ -206,8 +209,66 @@ nav {
   margin: 25px 0;
 }
 
+@media (min-width: 480px) {
+  .sidebar p:nth-of-type(1) {
+    margin-left: -15px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, .05);
+  }
+}
+
 .sidebar p:nth-of-type(2) {
   color: rgba(255, 255, 255, .4);
+}
+
+.sidebar_subscribe {
+  width: 240px;
+  padding: 15px 0;
+  position: fixed;
+  bottom: 25px;
+  left: 10px;
+  border-radius: 4px 4px 22px 4px;
+  background: rgba(131, 56, 236, .2);
+}
+
+@media (max-width: 480px) {
+  .sidebar_subscribe {
+    display: none;
+  }
+}
+
+.sidebar_subscribe h4 {
+  margin: 0 0 0 12px;
+  padding-bottom: 0;
+  background: none;
+  font-size: .75rem;
+  font-weight: 400;
+}
+
+.sidebar_subscribe input {
+  width: 80%;
+  margin-left: 10px;
+  padding: 5px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, .2);
+}
+
+.sidebar_subscribe input:focus {
+  border: 1px solid #3A86FF;
+  -webkit-appearance: none !important;
+}
+
+.sidebar_subscribe button {
+  margin: 4px 0 0 10px;
+  padding: 7px 15px;
+  font-size: .75rem;
+}
+
+.sidebar_subscribe p:nth-of-type(1) {
+  background: none;
+  margin: 0;
+  font-size: .75rem;
 }
 
 /* =======FOOTBAR========================================= */
@@ -287,6 +348,7 @@ nav {
 .poem {
   width: auto;
   min-width: 250px;
+  max-width: 300px;
   margin: 10px;
   padding: 10px 20px;
   border-radius: 24px;
@@ -378,6 +440,10 @@ nav {
   font-size: .875rem;
 }
 
+.poem_comments button {
+  font-size: .75rem;
+}
+
 .poem_comment {
   margin: 5px 0;
   padding: 10px;
@@ -427,11 +493,21 @@ nav {
   color: white;
 }
 
+.form_success_subs {
+  color: #3A86FF;
+}
+
 /* =======ADMIN=========================================== */
 .admin_login,
 .admin_dashboard {
-  padding: 50px 25px 125px 25px;
+  padding: 50px 25px 125px 35px;
   color: white;
+}
+
+@media (min-width: 480px) {
+  .admin_login {
+    max-width: 250px;
+  }
 }
 
 .admin_login button {

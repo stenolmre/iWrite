@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import cookies from 'next-cookies'
 import { useRouter } from 'next/router'
+import Head from './../../../utils/head'
 
 import validateEmail from './../../../utils/validateemail'
 import { useUserDispatch } from './../../../context/user'
@@ -31,17 +32,20 @@ const Login = () => {
     }
   }
 
-  return <Layout>
-    <div className="admin_login">
-      <h2>Log In</h2>
-      <label>Email</label>
-      <input name="email" value={loginData.email} onChange={onChange}/>
-      <label>Password</label>
-      <input type="password" name="password" value={loginData.password} onChange={onChange}/>
-      <button onClick={logMeIn}>Log In</button>
-      <p className="form_error">{error.error && error.message}</p>
-    </div>
-  </Layout>
+  return <Fragment>
+    <Head title="Admin Login"/>
+    <Layout>
+      <div className="admin_login">
+        <h2>Log In</h2>
+        <label>Email</label>
+        <input name="email" value={loginData.email} onChange={onChange}/>
+        <label>Password</label>
+        <input type="password" name="password" value={loginData.password} onChange={onChange}/>
+        <button onClick={logMeIn}>Log In</button>
+        <p className="form_error">{error.error && error.message}</p>
+      </div>
+    </Layout>
+  </Fragment>
 }
 
 Login.getInitialProps = async ctx => {
