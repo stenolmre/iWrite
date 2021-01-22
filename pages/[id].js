@@ -39,7 +39,7 @@ PoemPage.getInitialProps = async ctx => {
 
   const { data } = !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
     ? await axios.get(`http://localhost:3000/api/poem/get?id=${ id }`)
-    : await axios.get(`https://iwrite.vercel.app/api/poem/get?id=${ id }`)
+    : await axios.get(`https://iwrite.im/api/poem/get?id=${ id }`)
 
   return { poem_name: data.name }
 }
