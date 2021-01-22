@@ -56,9 +56,7 @@ const Contact = () => {
   }
 
   return <Fragment>
-    <Head>
-      <Head title="iWrite - Let's Talk" url="https://www.iwrite.im/letstalk"/>
-    </Head>
+    <Head title="iWrite - Let's Talk" url="https://www.iwrite.im/letstalk"/>
     <Layout>
       <div className="contact">
         <h2>Let's Talk</h2>
