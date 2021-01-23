@@ -51,7 +51,7 @@ const Login = () => {
 Login.getInitialProps = async ctx => {
   const { user } = cookies(ctx) || ''
 
-  if (!user) {
+  if (user) {
     ctx.res.writeHead(302, { Location: '/private/admin/dashboard' });
     ctx.res.end()
   } else {
