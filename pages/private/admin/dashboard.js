@@ -1,30 +1,40 @@
 import React, { useEffect } from 'react'
 import cookies from 'next-cookies'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 
-import { useUserState, useUserDispatch } from './../../../context/user'
-import { loadUser, logout } from './../../../actions/user'
+import { useUserDispatch } from './../../../context/user'
+import { loadUser } from './../../../actions/user'
+import { usePoemState, usePoemDispatch } from './../../../context/poem'
+import { getPoems } from './../../../actions/poem'
 
 import Layout from './../../../components/layout'
 import AdminNavigation from './../../../components/adminnavigation'
 
 const Dashboard = ({ user_token }) => {
-  const router = useRouter()
-
-  const { user } = useUserState()
   const dispatchUser = useUserDispatch()
+  const { poems } = usePoemState()
+  const dispatchPoem = usePoemDispatch()
 
-  useEffect(() => { loadUser(dispatchUser, user_token) }, [dispatchUser, user_token])
-
-  const logMeOut = async () => {
-    await logout(dispatchUser, () => router.push('/'))
-  }
+  useEffect(() => {
+    loadUser(dispatchUser, user_token)
+    getPoems(dispatchPoem)
+  }, [dispatchUser, user_token, dispatchPoem])
 
   return <Layout>
     <AdminNavigation />
     <div className="admin_dashboard">
       <h2>Dashboard</h2>
-      <p>{user && user.name}</p>
+      {
+        poems && poems.map((el, i) => <div key={i} className={(i + 1) % 2 === 0 ? 'admin_poems even_nr' : 'admin_poems'}>
+          <p className="admin_poems_nr">{i + 1}</p>
+          <Link href={`/private/admin/poem/${el._id}`}><a className="admin_poems_name">
+            <p>{el.name}</p>
+          </a></Link>
+          <p className="admin_poems_likes">{el.likes.length}</p>
+          <p className="admin_poems_comments">{el.comments.length}</p>
+          <i className="fas fa-trash"/>
+        </div>)
+      }
     </div>
   </Layout>
 }

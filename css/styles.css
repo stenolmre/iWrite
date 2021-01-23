@@ -541,7 +541,8 @@ nav {
 
 .admin_login,
 .admin_dashboard,
-.admin_add {
+.admin_add,
+.admin_poem {
   padding: 50px 25px 125px 25px;
   color: white;
 }
@@ -553,7 +554,8 @@ nav {
 
   .admin_login,
   .admin_dashboard,
-  .admin_add {
+  .admin_add,
+  .admin_poem {
     padding-left: 35px;
   }
 }
@@ -561,15 +563,6 @@ nav {
 .admin_login button {
   margin: 15px 0;
 }
-
-/* .admin_editor {
-  width: 250px;
-  height: 150px;
-  background: white;
-  color: black;
-  margin: 10px;
-  padding: 10px;
-} */
 
 .admin_subscribers {
   width: 100%;
@@ -582,4 +575,27 @@ nav {
 
 .admin_subscribers p:nth-of-type(1) {
   width: 25px;
+}
+
+.admin_poems {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin_poems_nr,
+.admin_poems .fa-trash,
+.admin-poems .fa-circle {
+  width: 25px;
+}
+
+.admin_poems_likes,
+.admin_poems_comments {
+  width: 50px;
+}
+
+.admin_poems_name {
+  width: calc(100% - 150px);
+  color: white;
 }
