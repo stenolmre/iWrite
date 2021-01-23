@@ -5,7 +5,7 @@ connectDB()
 
 export default async function (req, res) {
   try {
-    const poems = await Poem.find()
+    const poems = await Poem.find().sort({ createdAt: -1 })
 
     if (!poems) return res.status(401).json({ msg: 'Poems not found.' })
 

@@ -11,7 +11,10 @@ const Layout = ({ children, poem, sidebarpoem, search }) => {
   return <Fragment>
     <div className="index_desktop">
       {
-        !poem && <Sidebar sidebarpoem={sidebarpoem}/>
+        !poem && <Fragment>
+          <div />
+          <Sidebar sidebarpoem={sidebarpoem}/>
+        </Fragment>
       }
       <div>
         <Navbar search={search}/>
