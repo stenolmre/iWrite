@@ -49,13 +49,13 @@ const Login = () => {
 }
 
 Login.getInitialProps = async ctx => {
-  const { user_token } = cookies(ctx) || ''
+  const { user } = cookies(ctx) || ''
 
-  if (user_token) {
-    ctx.res.writeHead(302, { Location: 'private/admin/dashboard' });
+  if (!user) {
+    ctx.res.writeHead(302, { Location: '/private/admin/dashboard' });
     ctx.res.end()
   } else {
-    return { }
+    return { user_token: user }
   }
 }
 
