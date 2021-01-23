@@ -67,6 +67,10 @@ button:disabled {
   cursor: default;
 }
 
+.even_nr {
+  color: rgba(255, 255, 255, .7);
+}
+
 .loader {
   fill: white;
 }
@@ -362,7 +366,7 @@ nav {
 @media(max-width: 480px) {
   .poem {
     width: calc(90% - 40px);
-    margin: 10px 5%;
+    margin: 10px 25px;
   }
 }
 
@@ -497,10 +501,48 @@ nav {
   color: #3A86FF;
 }
 
+/* =======SUBSCRIBE======================================= */
+.subscribe {
+  padding: 50px 25px 125px 25px;
+  color: white;
+}
+
+@media (min-width: 480px) {
+  .subscribe {
+    width: 250px;
+    padding-left: 35px;
+  }
+}
+
+.subscribe button {
+  margin: 15px 0;
+}
+
 /* =======ADMIN=========================================== */
+.admin_navbar {
+  position: absolute;
+  top: 175px;
+  right: 25px;
+}
+
+@media (min-width: 480px) {
+  .admin_navbar {
+    display: none;
+  }
+}
+
+.admin_navbar i {
+  padding: 10px 15px;
+  margin-left: 15px;
+  border-radius: 4px;
+  background: rgba(33, 33, 33, .2);
+  color: white;
+}
+
 .admin_login,
-.admin_dashboard {
-  padding: 50px 25px 125px 35px;
+.admin_dashboard,
+.admin_add {
+  padding: 50px 25px 125px 25px;
   color: white;
 }
 
@@ -508,17 +550,36 @@ nav {
   .admin_login {
     max-width: 250px;
   }
+
+  .admin_login,
+  .admin_dashboard,
+  .admin_add {
+    padding-left: 35px;
+  }
 }
 
 .admin_login button {
   margin: 15px 0;
 }
 
-.admin_editor {
+/* .admin_editor {
   width: 250px;
   height: 150px;
   background: white;
   color: black;
   margin: 10px;
   padding: 10px;
+} */
+
+.admin_subscribers {
+  width: 100%;
+  display: flex;
+}
+
+.admin_subscribers p {
+  margin: 5px 0;
+}
+
+.admin_subscribers p:nth-of-type(1) {
+  width: 25px;
 }
