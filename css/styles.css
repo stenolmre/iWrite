@@ -68,7 +68,9 @@ button:disabled {
 }
 
 .even_nr {
-  color: rgba(255, 255, 255, .7);
+  margin-left: -10px;
+  padding: 0 10px;
+  background: rgba(255, 255, 255, .05);
 }
 
 .loader {
@@ -362,7 +364,7 @@ nav {
   width: auto;
   min-width: 250px;
   margin: 10px;
-  padding: 10px 20px;
+  padding: 10px 20px 20px 20px;
   border-radius: 24px;
   background: #9557ee;
   background: -webkit-linear-gradient(left, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1));
@@ -399,8 +401,8 @@ nav {
   margin: 5px 0;
 }
 
-.poem div {
-  margin: 0 0 15px 0;
+.poem .poem_social {
+  margin: 0 0 5px 0;
 }
 
 .poem i {
@@ -429,13 +431,26 @@ nav {
   color: rgba(255, 255, 255, .4);
 }
 
+.like_count {
+  margin: 0;
+  color: white;
+  font-size: .75rem;
+}
+
 .poem hr {
   width: 35px;
   margin: 25px 0;
 }
 
 .poem_comments {
+  width: 250px;
   color: white;
+}
+
+@media(max-width: 480px) {
+  .poem_comments {
+    width: 100%;
+  }
 }
 
 .poem_comments input,
@@ -556,7 +571,7 @@ nav {
 }
 
 @media (min-width: 480px) {
-  .admin_login {
+  .admin_login, {
     max-width: 250px;
   }
 
@@ -570,6 +585,13 @@ nav {
 
 .admin_login button {
   margin: 15px 0;
+}
+
+.admin_dashboard hr {
+  height: 2px;
+  margin: -5px 0 10px 0;
+  border: none;
+  background: rgba(255, 255, 255, .2);
 }
 
 .admin_subscribers {
@@ -610,4 +632,34 @@ nav {
 .admin_poems_name {
   width: calc(100% - 150px);
   color: white;
+}
+
+@media (min-width: 480px) {
+  .admin_poems {
+    width: 350px;
+  }
+
+  .admin_dashboard hr {
+    width: 350px;
+  }
+}
+
+.admin_analytics {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-gap: 2px;
+  padding: 5px 0;
+}
+
+.admin_analytics div {
+  width: calc(100% - 8px);
+  height: 75px;
+  margin-bottom: 15px;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .05);
+  text-align: center;
+  color: rgba(255, 255, 255, .5);
 }

@@ -27,7 +27,16 @@ const AdminPoem = ({ user_token }) => {
     <AdminNavigation />
     <div className="admin_poem">
       {
-        poem && <Poem id={poem._id} name={poem.name} date={new Date(poem.createdAt).toLocaleDateString()} text={poem.text} dispatchPoem={dispatchPoem} linkName={poem.name.toLowerCase().replace(' ', '-')} poemData={poem}/>
+        poem && <Poem
+          id={poem._id}
+          name={poem.name}
+          date={new Date(poem.createdAt).toLocaleDateString()}
+          text={poem.text}
+          dispatchPoem={dispatchPoem}
+          linkName={poem.name.toLowerCase().replace(' ', '-')}
+          poemData={poem}
+          likeCount={poem.likes.length}
+        />
       }
     </div>
   </Layout>

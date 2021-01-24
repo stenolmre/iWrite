@@ -8,7 +8,7 @@ import { addLike, removeLike } from './../actions/poem'
 
 import Comments from './comments'
 
-const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData }) => {
+const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData, likeCount }) => {
   const { query } = useRouter()
 
   const { likes } = useLikeState()
@@ -62,10 +62,10 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData }) 
           </a></Link>
         : <div dangerouslySetInnerHTML={content()} className="poem-text"/>
     }
-    <div className="poem-social">
+    <div className="poem_social">
       {
         likes && likes.includes(id)
-          ? <i className="fas fa-heart" onClick={unlike}/>
+          ? <i style={{ color: 'red' }} className="fas fa-heart" onClick={unlike}/>
           : <i className="far fa-heart" onClick={like}/>
       }
       {
@@ -85,6 +85,9 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData }) 
         showCopyMessage && <span>Copied to clipboard</span>
       }
     </div>
+    {
+      likeCount && <p className="like_count">{likeCount} Likes</p>
+    }
     {
       poem
         ? null
