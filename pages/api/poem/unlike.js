@@ -21,7 +21,12 @@ export default async function (req, res) {
 
     await poem.save()
 
-    res.send(poem.likes)
+    const poems = await Poem.find().sort({ createdAt: -1 })
+
+    res.send({
+      likes: poem.likes,
+      poems: poems
+    })
   } catch (err) {
     res.status(500).json({ msg: 'Server Error', error: err.message })
   }

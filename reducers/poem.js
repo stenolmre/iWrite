@@ -30,8 +30,8 @@ export const PoemReducer = (state = initalState, action) => {
     case ADD_LIKE:
     case REMOVE_LIKE:
       return {
-        ...state,
-        poem: { ...state.poem, likes: payload },
+        poems: payload.poems,
+        poem: { ...state.poem, likes: payload.likes },
         loading: false,
         error: null
       }

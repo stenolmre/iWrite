@@ -31,6 +31,7 @@ const Index = () => {
               text={el.text}
               dispatchPoem={dispatchPoem}
               linkName={el.name.toLowerCase().replace(' ', '-')}
+              likeCount={el.likes.length}
             />)
         }
       </div>
