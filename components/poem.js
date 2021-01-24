@@ -86,7 +86,7 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData, li
       }
     </div>
     {
-      likeCount && <p className="like_count">{likeCount} Likes</p>
+      likeCount >= 0 && <p className="like_count">{likeCount} Likes</p>
     }
     {
       poem

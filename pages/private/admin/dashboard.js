@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useUserDispatch } from './../../../context/user'
 import { loadUser } from './../../../actions/user'
 import { usePoemState, usePoemDispatch } from './../../../context/poem'
-import { getPoems } from './../../../actions/poem'
+import { getPoems, deletePoem } from './../../../actions/poem'
 import { useSubscriberState, useSubscriberDispatch } from './../../../context/subscriber'
 import { getSubscribers } from './../../../actions/subscriber'
 
@@ -24,6 +24,10 @@ const Dashboard = ({ user_token }) => {
     getPoems(dispatchPoem)
     getSubscribers(dispatchSubscriber)
   }, [dispatchUser, user_token, dispatchPoem, dispatchSubscriber])
+
+  const deleteOnePoem = async (id) => {
+    await deletePoem(dispatchPoem, id)
+  }
 
   return <Layout>
     <AdminNavigation />
@@ -55,7 +59,7 @@ const Dashboard = ({ user_token }) => {
           </a></Link>
           <p className="admin_poems_likes">{el.likes.length}</p>
           <p className="admin_poems_comments">{el.comments.length}</p>
-          <i className="fas fa-trash"/>
+          <i style={{ cursor: 'pointer' }} className="fas fa-trash" onClick={() => deleteOnePoem(el._id)}/>
         </div>)
       }
     </div>

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ADD_POEM, GET_POEM, GET_POEMS, POEM_ERROR, ADD_LIKE, ADD_COMMENT, REMOVE_LIKE, REMOVE_COMMENT } from './../actions/types'
+import { ADD_POEM, GET_POEM, GET_POEMS, DELETE_POEM, POEM_ERROR, ADD_LIKE, ADD_COMMENT, REMOVE_LIKE, REMOVE_COMMENT } from './../actions/types'
 
 export const addPoem = async (dispatch, data) => {
   const config = { headers: { 'Content-Type': 'application/json' } }
@@ -99,6 +99,22 @@ export const addComment = async (dispatch, id, data) => {
 
     dispatch({
       type: ADD_COMMENT,
+      payload: data
+    })
+  } catch (err) {
+    dispatch({
+      type: POEM_ERROR,
+      payload: err.response.data.msg
+    })
+  }
+}
+
+export const deletePoem = async (dispatch, id) => {
+  try {
+    const { data } = await axios.delete(`/api/poem/delete?id=${id}`)
+
+    dispatch({
+      type: DELETE_POEM,
       payload: data
     })
   } catch (err) {

@@ -28,7 +28,7 @@ const Index = () => {
               id={el._id}
               name={el.name}
               date={new Date(el.createdAt).toLocaleDateString()}
-              text={el.text}
+              text={el.text.replaceAll('<p></p>', '<br/>')}
               dispatchPoem={dispatchPoem}
               linkName={el.name.toLowerCase().replace(' ', '-')}
               likeCount={el.likes.length}

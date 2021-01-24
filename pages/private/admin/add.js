@@ -1,19 +1,22 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import cookies from 'next-cookies'
+import dynamic from 'next/dynamic'
+const RichEditor = dynamic(() => import('./../../../components/editor'), { ssr: false })
 
-// import { useUserState, useUserDispatch } from './../../../context/user'
-// import { loadUser, logout } from './../../../actions/user'
+import { usePoemDispatch } from './../../../context/poem'
+import { addPoem } from './../../../actions/poem'
 
 import Layout from './../../../components/layout'
 import AdminNavigation from './../../../components/adminnavigation'
 
 const Add = ({ user_token }) => {
+  const dispatchPoem = usePoemDispatch()
+  
   return <Layout>
     <AdminNavigation />
     <div className="admin_add">
       <h2>Create</h2>
-      <textarea />
-      <button>Create</button>
+      <RichEditor action={addPoem} dispatch={dispatchPoem}/>
     </div>
   </Layout>
 }
