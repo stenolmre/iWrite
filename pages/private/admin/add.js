@@ -28,17 +28,17 @@ const Add = ({ user_token }) => {
 Add.getInitialProps = async ctx => {
   const { user } = cookies(ctx) || ''
 
-  setAuthToken(user)
+  try {
+    setAuthToken(user)
 
-  const { data } = !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-    ? await axios.get('http://localhost:3000/api/user/get')
-    : await axios.get('https://iwrite.im/api/user/get')
+    const { data } = !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+      ? await axios.get('http://localhost:3000/api/user/get')
+      : await axios.get('https://iwrite.im/api/user/get')
 
-  if (data.status !== 'success') {
+    return { user_token: user }
+  } catch (err) {
     ctx.res.writeHead(302, { Location: '/private/admin/login' });
     ctx.res.end()
-  } else {
-    return { user_token: user }
   }
 }
 
