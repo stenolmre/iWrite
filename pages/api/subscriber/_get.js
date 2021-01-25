@@ -5,11 +5,11 @@ connectDB()
 
 export default async function (req, res) {
   try {
-    const sub = await Subscriber.find()
+    const subs = await Subscriber.find()
 
-    if (!sub) return res.status(401).json({ msg: 'Subscribers not found.' })
+    if (!subs) return res.status(401).json({ msg: 'Subscribers not found.' })
 
-    res.send(sub)
+    res.send(subs)
   } catch (err) {
     res.status(500).json({ msg: 'Server Error', error: err.message })
   }

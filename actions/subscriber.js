@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { SUBSCRIBE, GET_SUBSCRIBERS, SUBSCRIBER_ERROR } from './types'
+import { SUBSCRIBE, UNSUBSCRIBE, GET_SUBSCRIBERS, SUBSCRIBER_ERROR } from './types'
 
 export const addSubscriber = async (dispatch, data) => {
   const config = { headers: { 'Content-Type': 'application/json' } }
@@ -12,6 +12,26 @@ export const addSubscriber = async (dispatch, data) => {
     dispatch({
       type: SUBSCRIBE,
       payload: data.subscriber
+    })
+  } catch (err) {
+    dispatch({
+      type: SUBSCRIBER_ERROR,
+      payload: err.response.data.msg
+    })
+  }
+}
+
+export const removeSubscriber = async (dispatch, data) => {
+  const config = { headers: { 'Content-Type': 'application/json' } }
+
+  const body = JSON.stringify(data)
+
+  try {
+    const { data } = await axios.post('/api/subscriber/delete', body, config)
+
+    dispatch({
+      type: UNSUBSCRIBE,
+      payload: data
     })
   } catch (err) {
     dispatch({
