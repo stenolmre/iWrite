@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Head from './../utils/head'
 
 import validateEmail from './../utils/validateemail'
 
@@ -40,6 +41,7 @@ const Subscribe = () => {
   }
 
   return <Layout>
+    <Head title="iWrite - Subscribe" url="https://www.iwrite.im/subscribe"/>
     <div className="subscribe">
       <h2>Subscribe</h2>
       <label>Email</label>

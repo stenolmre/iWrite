@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Head from './../utils/head'
 
 import validateEmail from './../utils/validateemail'
 
@@ -40,11 +41,12 @@ const Subscribe = () => {
   }
 
   return <Layout>
+    <Head title="iWrite - Unsubscribe" url="https://www.iwrite.im/unsubscribe"/>
     <div className="subscribe">
       <h2>Unsubscribe</h2>
       <label>Email</label>
       <input name="email" value={email} onChange={e => setEmail(e.target.value)}/>
-      <button disabled={processing} onClick={subscribe}>{processing ? 'Processing..' : 'Subscribe'}</button>
+      <button disabled={processing} onClick={subscribe}>{processing ? 'Processing..' : 'Unsubscribe'}</button>
       {error.error && <p className="form_error">{error.message}</p>}
       {success.success && <p style={{ color: '#fff' }}>{success.message}</p>}
     </div>
