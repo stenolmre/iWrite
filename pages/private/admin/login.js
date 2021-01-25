@@ -53,11 +53,11 @@ const Login = () => {
 Login.getInitialProps = async ctx => {
   const { user } = cookies(ctx) || ''
 
-  setAuthToken(user)
+  const config = { headers: { 'x-auth-token': user } }
 
   const { data } = !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-    ? await axios.get('http://localhost:3000/api/user/get')
-    : await axios.get('https://iwrite.im/api/user/get')
+    ? await axios.get('http://localhost:3000/api/user/get', config)
+    : await axios.get('https://iwrite.im/api/user/get', config)
 
   if (data.status === 'success') {
     ctx.res.writeHead(302, { Location: '/private/admin/dashboard' });
