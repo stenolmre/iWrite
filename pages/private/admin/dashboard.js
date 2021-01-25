@@ -71,7 +71,7 @@ const Dashboard = ({ user_token }) => {
 }
 
 Dashboard.getInitialProps = async ctx => {
-  const { user } = cookies(ctx) || 'no_token'
+  const { user } = cookies(ctx) || ''
 
   try {
     setAuthToken(user)
@@ -80,14 +80,10 @@ Dashboard.getInitialProps = async ctx => {
       ? await axios.get('http://localhost:3000/api/user/get')
       : await axios.get('https://iwrite.im/api/user/get')
 
-    if (!data) {
-      ctx.res.writeHead(302, { Location: '/private/admin/login' });
-      ctx.res.end()
-    }
-
     return { user_token: user }
   } catch (err) {
-    return { user_token: user }
+    ctx.res.writeHead(302, { Location: '/private/admin/login' });
+    ctx.res.end()
   }
 }
 
