@@ -54,12 +54,12 @@ const Login = ({ error_server }) => {
 Login.getInitialProps = async ctx => {
   const { user } = cookies(ctx) || ''
 
-  setAuthToken(user)
+  const config = { headers: { 'x-auth-token': user } }
 
   try {
     const { data } = !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-      ? await axios.get('http://localhost:3000/api/user/get')
-      : await axios.get('https://iwrite.im/api/user/get')
+      ? await axios.get('http://localhost:3000/api/user/get', config)
+      : await axios.get('https://iwrite.im/api/user/get', config)
   } catch (err) {
     return { error_server: err }
   }
