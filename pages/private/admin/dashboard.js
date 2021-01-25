@@ -80,7 +80,7 @@ Dashboard.getInitialProps = async ctx => {
       ? await axios.get('http://localhost:3000/api/user/get')
       : await axios.get('https://iwrite.im/api/user/get')
 
-    if (data.status !== 'success') {
+    if (!data) {
       ctx.res.writeHead(302, { Location: '/private/admin/login' });
       ctx.res.end()
     }
