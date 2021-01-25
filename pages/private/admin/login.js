@@ -54,24 +54,12 @@ const Login = ({ error_server }) => {
 Login.getInitialProps = async ctx => {
   const { user } = cookies(ctx) || ''
 
-  const config = { headers: { 'X-Auth-Token': user } }
-
-  try {
-    const { data } = !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-      ? await axios.get('http://localhost:3000/api/user/get', config)
-      : await axios.get('https://iwrite.im/api/user/get', config)
-  } catch (err) {
-    return { error_server: err }
+  if (user) {
+    ctx.res.writeHead(302, { Location: '/private/admin/dashboard' });
+    ctx.res.end()
+  } else {
+    return { user_token: user }
   }
-
-  return { user_token: user }
 }
 
 export default Login
-
-// if (data.status === 'success') {
-//   ctx.res.writeHead(302, { Location: '/private/admin/dashboard' });
-//   ctx.res.end()
-// } else {
-//   return { user_token: user }
-// }
