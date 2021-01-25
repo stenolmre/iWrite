@@ -4,7 +4,7 @@ import Head from 'next/head'
 export default function MetaTags({ title, url }) {
   return <Head>
     <title>{title}</title>
-    <meta charset="utf-8" />
+    <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"/>
     <meta name="description" content="iWrite purpose is to offer you a flight across the space created in one's mind."/>
     <meta name="image" content="https://res.cloudinary.com/djz69vbsq/image/upload/v1611424373/iWrite/share_img_uylypc.jpg"/>

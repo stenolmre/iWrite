@@ -53,18 +53,22 @@ const Login = () => {
 Login.getInitialProps = async ctx => {
   const { user } = cookies(ctx) || ''
 
-  const config = { headers: { 'x-auth-token': user } }
+  setAuthToken(user)
 
   const { data } = !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-    ? await axios.get('http://localhost:3000/api/user/get', config)
-    : await axios.get('https://iwrite.im/api/user/get', config)
+    ? await axios.get('http://localhost:3000/api/user/get')
+    : await axios.get('https://iwrite.im/api/user/get')
 
-  if (data.status === 'success') {
-    ctx.res.writeHead(302, { Location: '/private/admin/dashboard' });
-    ctx.res.end()
-  } else {
-    return { user_token: user }
-  }
+  console.log(data)
+
+  return { user_token: user }
 }
 
 export default Login
+
+// if (data.status === 'success') {
+//   ctx.res.writeHead(302, { Location: '/private/admin/dashboard' });
+//   ctx.res.end()
+// } else {
+//   return { user_token: user }
+// }
