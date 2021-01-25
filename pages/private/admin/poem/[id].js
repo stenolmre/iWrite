@@ -5,13 +5,13 @@ import { useRouter } from 'next/router'
 import { useUserDispatch } from './../../../../context/user'
 import { loadUser } from './../../../../actions/user'
 import { usePoemState, usePoemDispatch } from './../../../../context/poem'
-import { getPoem } from './../../../../actions/poem'
+import { getPoem, removeComment, updatePoem } from './../../../../actions/poem'
 
 import Layout from './../../../../components/layout'
 import AdminNavigation from './../../../../components/adminnavigation'
-import Poem from './../../../../components/poem'
+import AdminPoem from './../../../../components/adminpoem'
 
-const AdminPoem = ({ user_token }) => {
+const Index = ({ user_token }) => {
   const { query } = useRouter()
 
   const dispatchUser = useUserDispatch()
@@ -27,22 +27,21 @@ const AdminPoem = ({ user_token }) => {
     <AdminNavigation />
     <div className="admin_poem">
       {
-        poem && <Poem
-          id={poem._id}
+        poem && <AdminPoem
           name={poem.name}
-          date={new Date(poem.createdAt).toLocaleDateString()}
-          text={poem.text}
-          dispatchPoem={dispatchPoem}
-          linkName={poem.name.toLowerCase().replace(' ', '-')}
-          poemData={poem}
-          likeCount={poem.likes.length}
+          html={poem.text}
+          comments={poem.comments}
+          deleteComment={removeComment}
+          dispatch={dispatchPoem}
+          id={poem._id}
+          updatePoem={updatePoem}
         />
       }
     </div>
   </Layout>
 }
 
-AdminPoem.getInitialProps = async ctx => {
+Index.getInitialProps = async ctx => {
   const { user } = cookies(ctx) || ''
 
   if (!user) {
@@ -53,4 +52,13 @@ AdminPoem.getInitialProps = async ctx => {
   }
 }
 
-export default AdminPoem
+export default Index
+
+// id={poem._id}
+// name={poem.name}
+// date={new Date(poem.createdAt).toLocaleDateString()}
+// text={poem.text}
+// dispatchPoem={dispatchPoem}
+// linkName={poem.name.toLowerCase().replace(' ', '-')}
+// poemData={poem}
+// likeCount={poem.likes.length}

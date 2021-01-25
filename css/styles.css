@@ -293,6 +293,7 @@ nav {
   justify-content: center;
   background: #1c1c1c;
   border-radius: 100% 100% 0 0;
+  z-index: 1000;
 }
 
 @media (min-width: 480px) {
@@ -689,4 +690,37 @@ nav {
   font-size: .875rem;
   position: relative;
   z-index: 1;
+}
+
+.admin_poem button {
+  margin-top: 10px;
+}
+
+.admin_poem hr {
+  height: 3px;
+  margin: 35px 0;
+  border: none;
+  background: rgba(255, 255, 255, .4)
+}
+
+.admin_poem_comment hr {
+  width: 35px;
+  height: 3px;
+  margin: 10px 0;
+  border: none;
+  background: rgba(255, 255, 255, .2)
+}
+
+.admin_poem_comment div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin_poem_comment div p {
+  margin: 0;
+}
+
+.admin_poem_comment i {
+  cursor: pointer;
 }

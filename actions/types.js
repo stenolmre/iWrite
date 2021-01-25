@@ -1,6 +1,7 @@
 export const ADD_POEM = 'ADD_POEM'
 export const GET_POEM = 'GET_POEM'
 export const GET_POEMS = 'GET_POEMS'
+export const UPDATE_POEM = 'UPDATE_POEM'
 export const DELETE_POEM = 'DELETE_POEM'
 export const POEM_ERROR = 'POEM_ERROR'
 export const ADD_LIKE = 'ADD_LIKE'

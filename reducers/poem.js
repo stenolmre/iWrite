@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { ADD_POEM, GET_POEM, GET_POEMS, DELETE_POEM, POEM_ERROR, ADD_LIKE, ADD_COMMENT, REMOVE_LIKE, REMOVE_COMMENT } from './../actions/types'
+import { ADD_POEM, GET_POEM, GET_POEMS, UPDATE_POEM, DELETE_POEM, POEM_ERROR, ADD_LIKE, ADD_COMMENT, REMOVE_LIKE, REMOVE_COMMENT } from './../actions/types'
 
 export const initialState = {
   poem: null,
@@ -14,6 +14,7 @@ export const PoemReducer = (state = initalState, action) => {
   switch (type) {
     case ADD_POEM:
     case GET_POEM:
+    case UPDATE_POEM:
       return {
         ...state,
         poem: payload,
