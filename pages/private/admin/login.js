@@ -53,8 +53,9 @@ const Login = ({ error_server }) => {
 
 Login.getInitialProps = async ctx => {
   const { user } = cookies(ctx) || ''
+  const token = JSON.stringify(user)
 
-  const config = { headers: { 'x-auth-token': user } }
+  const config = { headers: { 'x-auth-token': token } }
 
   try {
     const { data } = !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
