@@ -11,8 +11,7 @@ import { login } from './../../../actions/user'
 
 import Layout from './../../../components/layout'
 
-const Login = ({ error_server }) => {
-  console.log(error_server)
+const Login = () => {
   const router = useRouter()
 
   const dispatchUser = useUserDispatch()
@@ -52,12 +51,22 @@ const Login = ({ error_server }) => {
 }
 
 Login.getInitialProps = async ctx => {
-  const { user } = cookies(ctx) || ''
+  const { user } = cookies(ctx) || 'no_token'
 
-  if (user) {
-    ctx.res.writeHead(302, { Location: '/private/admin/dashboard' });
-    ctx.res.end()
-  } else {
+  try {
+    setAuthToken(user)
+
+    const { data } = !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+      ? await axios.get('http://localhost:3000/api/user/get')
+      : await axios.get('https://iwrite.im/api/user/get')
+
+    if (data.status === 'success') {
+      ctx.res.writeHead(302, { Location: '/private/admin/dashboard' });
+      ctx.res.end()
+    }
+
+    return { user_token: user }
+  } catch (err) {
     return { user_token: user }
   }
 }
