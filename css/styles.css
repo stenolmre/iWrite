@@ -525,6 +525,27 @@ nav {
   color: #3A86FF;
 }
 
+.contact_info {
+  width: 80%;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_info div {
+  display: flex;
+  align-items: center;
+}
+
+.contact_info div p {
+  width: 75px;
+  margin: 4px 0;
+}
+
+.contact_info a {
+  color: white;
+}
+
 /* =======SUBSCRIBE======================================= */
 .subscribe {
   padding: 50px 25px 125px 25px;

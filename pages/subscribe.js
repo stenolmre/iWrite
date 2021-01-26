@@ -44,10 +44,13 @@ const Subscribe = () => {
     <Head title="iWrite - Subscribe" url="https://www.iwrite.im/subscribe"/>
     <div className="subscribe">
       <h2>Subscribe</h2>
+      <p>To be aware and get notified of new posts please subscribe to our mailing list. NB! Dont's miss out on our weekly monday motivation letter by not subscribing.</p>
+      <p>Be aware. Be notified. Be great.</p>
+      <br />
       <label>Email</label>
       <input name="email" value={email} onChange={e => setEmail(e.target.value)}/>
-      <button disabled={processing} onClick={subscribe}>{processing ? 'Processing..' : 'Subscribe'}</button>
       {error.error && <p className="form_error">{error.message}</p>}
+      <button disabled={processing} onClick={subscribe}>{processing ? 'Processing..' : 'Subscribe'}</button>
       {success.success && <p style={{ color: '#fff' }}>{success.message}</p>}
     </div>
   </Layout>

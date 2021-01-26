@@ -59,6 +59,8 @@ const Contact = () => {
     <Layout>
       <div className="contact">
         <h2>Let's Talk</h2>
+        <p>In order to enjoy fully the ride you are about to experience or have been already experienced you must have a choice to ask why. To connect, to share or to ask please fill the form below and I will definitely get back to you.</p>
+        <br />
         <label>Email</label>
         <input name="email" value={formData.email} onChange={onChange}/>
         <p className="form_error">{error.email}</p>
@@ -68,6 +70,20 @@ const Contact = () => {
         <button disabled={processing} onClick={send}>{processing ? 'Sending..' : 'Send'}</button>
         <p className="form_error">{error.error}</p>
         <p className="form_success">{success && 'Your message is successfully sent! Thank you!'}</p>
+        <div className="contact_info">
+          <div>
+            <p>Name:</p>
+            <span>Sten Olmre</span>
+          </div>
+          <div>
+            <p>Email:</p>
+            <span><a href="mailto:stenolmre@icloud.com" target="_blank" rel="noreferrer">stenolmre@icloud.com</a></span>
+          </div>
+          <div>
+            <p><i className="fab fa-instagram"/></p>
+            <span><a href="https://instagram.com/stenolmre" target="_blank" rel="noreferrer">stenolmre</a></span>
+          </div>
+        </div>
       </div>
     </Layout>
   </Fragment>
