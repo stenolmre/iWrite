@@ -7,6 +7,7 @@ import Footbar from './../components/footbar'
 const Layout = ({ children, poem, sidebarpoem, search }) => {
   return <Fragment>
     <div className="index_desktop">
+      <img className="index_desktop_img" src="/bg.jpg" alt="bg_image"/>
       {
         !poem && <Fragment>
           <div />
