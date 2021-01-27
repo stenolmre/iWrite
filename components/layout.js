@@ -21,6 +21,7 @@ const Layout = ({ children, poem, sidebarpoem, search }) => {
       <Footbar />
     </div>
     <div className="index_mobile">
+      <img className="index_desktop_img" src="/bg_mobile.jpg" alt="bg_image"/>
       {
         !poem && <Sidebar sidebarpoem={sidebarpoem}/>
       }

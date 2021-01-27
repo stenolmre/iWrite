@@ -38,6 +38,7 @@ const RichEditor = ({ action, dispatch }) => {
   return <div>
     <label>Name</label>
     <input name="inputData" value={inputData} onChange={e => setInputData(e.target.value)}/>
+    <label>Text</label>
     <Editor
       editorState={editorState}
       onChange={onChange}

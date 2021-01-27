@@ -46,8 +46,8 @@ const Subscribe = () => {
       <h2>Unsubscribe</h2>
       <label>Email</label>
       <input name="email" value={email} onChange={e => setEmail(e.target.value)}/>
-      <button disabled={processing} onClick={subscribe}>{processing ? 'Processing..' : 'Unsubscribe'}</button>
       {error.error && <p className="form_error">{error.message}</p>}
+      <button disabled={processing} onClick={subscribe}>{processing ? 'Processing..' : 'Unsubscribe'}</button>
       {success.success && <p style={{ color: '#fff' }}>{success.message}</p>}
     </div>
   </Layout>

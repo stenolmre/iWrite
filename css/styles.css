@@ -100,21 +100,13 @@ button:disabled {
   width: 100%;
   min-height: 100vh;
   background: #8338EC;
+  background: -webkit-linear-gradient(308deg, #8338EC -3.66%, #4638EC 100%);
+  background: -o-linear-gradient(308deg, #8338EC -3.66%, #4638EC 100%);
+  background: linear-gradient(38deg, #8338EC -3.66%, #4638EC 100%);
 }
 
 .index_desktop {
   display: none;
-}
-
-.desktop_bg_img {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  object-position: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
 }
 
 @media (min-width: 480px) {
@@ -132,17 +124,17 @@ button:disabled {
       background: -o-linear-gradient(304deg, #8338EC 0%, #4638EC 100%);
       background: linear-gradient(34deg, #8338EC 0%, #4638EC 100%); */
     }
+}
 
-  .index_desktop_img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    object-position: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
+.index_desktop_img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 /* =======NAVBAR========================================== */
@@ -633,8 +625,9 @@ nav {
   }
 
   .admin_add,
+  .admin_poem,
   .admin_subscribers {
-    max-width: 350px;
+    max-width: 450px;
   }
 }
 
@@ -691,11 +684,11 @@ nav {
 
 @media (min-width: 480px) {
   .admin_poems {
-    width: 350px;
+    width: 450px;
   }
 
   .admin_dashboard hr {
-    width: 350px;
+    width: 450px;
   }
 }
 
