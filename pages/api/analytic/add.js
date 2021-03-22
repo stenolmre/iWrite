@@ -4,9 +4,9 @@ import Analytic from '@/models/analytic'
 connectDB()
 
 export default async function (req, res) {
-  const { id, category } = req.body
+  const { id } = req.body
 
-  if (!id || !category) return res.status(401).json({ msg: 'Statistilise näitaja ID ja Kategooria on kohustuslikud.' })
+  if (!id) return res.status(401).json({ msg: 'Statistilise näitaja ID on kohustuslik.' })
 
   try {
     const analytic = new Analytic(req.body)

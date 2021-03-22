@@ -783,6 +783,7 @@ nav {
 .analytics_page {
   width: calc(100% - 50px);
   padding: 50px 25px 125px 25px;
+  color: white;
 }
 
 @media (max-width: 480px) {
@@ -790,6 +791,20 @@ nav {
     width: 90%;
     padding: 75px 5% 125px 5%;
   }
+}
+
+.analytics_page_content {
+  margin-left: 25px;
+}
+
+.analytics_page_content h3 span {
+  padding: 8px 20px 8px 20px;
+  background: #fff;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1));
+  background: -o-linear-gradient(left, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1));
+  backdrop-filter: blur(1rem);
+  border-radius: 6px;
 }
 
 /* =======CALENDAR==================================== */

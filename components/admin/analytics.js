@@ -13,11 +13,11 @@ const Analytics = () => {
 
   useEffect(() => { getAnalytics(dispatchAnalytics) }, [dispatchAnalytics])
 
-  console.log(analytics);
-
   return <div>
     <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
-
+    <div className="analytics_page_content">
+      <h3>Views at {selectedDate.toLocaleDateString()}: <span>{analytics && analytics.filter(el => (new Date(el.createdAt).toLocaleDateString()).includes(selectedDate.toLocaleDateString())).length}</span></h3>
+    </div>
   </div>
 }
 
