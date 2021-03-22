@@ -4,13 +4,16 @@ import PoemState from './poem'
 import LikeState from './like'
 import UserState from './user'
 import SubscriberState from './subscriber'
+import AnalyticState from './analytic'
 
 const GlobalState = ({ children }) => {
   return <UserState>
     <PoemState>
       <LikeState>
         <SubscriberState>
-          { children }
+          <AnalyticState>
+            { children }
+          </AnalyticState>
         </SubscriberState>
       </LikeState>
     </PoemState>
