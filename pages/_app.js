@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 
-import GlobalState from './../context/state'
-import LoadLikes from './../utils/loadlikes'
+import GlobalState from '@/context/state'
+import LoadLikes from '@/utils/loadlikes'
 
 import './../css/styles.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'

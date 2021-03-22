@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react'
 
-import { usePoemState, usePoemDispatch } from './../context/poem'
-import { getPoems } from './../actions/poem'
+import { usePoemState, usePoemDispatch } from '@/context/poem'
+import { getPoems } from '@/actions/poem'
 
-import Loader from './loader'
-import Poem from './poem'
+import Loader from '@/components/loader'
+import Poem from '@/components/poem'
 
 const Poems = ({ search }) => {
   const { poems, loading } = usePoemState()

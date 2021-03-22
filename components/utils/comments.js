@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import { usePoemState, usePoemDispatch } from './../context/poem'
-import { addComment } from './../actions/poem'
+import { usePoemState, usePoemDispatch } from '@/context/poem'
+import { addComment } from '@/actions/poem'
 
 const Comments = ({ poem }) => {
   const dispatchPoem = usePoemDispatch()

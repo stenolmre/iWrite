@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react'
-import { initialState, UserReducer } from './../reducers/user'
+import { initialState, UserReducer } from '@/reducers/user'
 
 export const UserStateCtx = createContext()
 export const UserDispatchCtx = createContext()

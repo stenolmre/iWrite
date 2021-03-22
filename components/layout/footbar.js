@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import Link from 'next/link'
 import Cookies from 'js-cookie'
 
-import { useUserState, useUserDispatch } from './../context/user'
-import { loadUser } from './../actions/user'
+import { useUserState, useUserDispatch } from '@/context/user'
+import { loadUser } from '@/actions/user'
 
 const Footbar = () => {
   const token = Cookies.get('user') || ''

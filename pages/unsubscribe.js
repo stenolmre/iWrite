@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import Head from './../utils/head'
+import Head from '@/utils/head'
 
-import validateEmail from './../utils/validateemail'
+import validateEmail from '@/utils/validateemail'
 
-import { useSubscriberState, useSubscriberDispatch } from './../context/subscriber'
-import { removeSubscriber } from './../actions/subscriber'
+import { useSubscriberState, useSubscriberDispatch } from '@/context/subscriber'
+import { removeSubscriber } from '@/actions/subscriber'
 
-import Layout from './../components/layout'
+import Layout from '@/components/layout'
 
 const Subscribe = () => {
   const dispatchSubscriber = useSubscriberDispatch()

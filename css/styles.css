@@ -778,3 +778,72 @@ nav {
 .admin_poem_comment i {
   cursor: pointer;
 }
+
+/* =======ANALYTICS=================================== */
+.analytics_page {
+  width: calc(100% - 50px);
+  padding: 50px 25px 125px 25px;
+}
+
+@media (max-width: 480px) {
+  .analytics_page {
+    width: 90%;
+    padding: 75px 5% 125px 5%;
+  }
+}
+
+/* =======CALENDAR==================================== */
+.calendar {
+  width: 325px;
+  margin-bottom: 50px;
+  padding: 10px;
+  font-size: .75rem;
+  border-radius: 24px;
+  background: #fff;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1));
+  background: -o-linear-gradient(left, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1));
+  backdrop-filter: blur(1rem);
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .calendar {
+    width: calc(100% - 20px);
+  }
+}
+
+.calendar_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--graysmoke);
+  border-radius: 14px;
+}
+
+.calendar_header i {
+  width: 45px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.calendar table {
+  width: 100%;
+  text-align: center;
+}
+
+.calendar_days div,
+.calendar_non_active_date {
+  color: rgba(33, 33, 33, .7);
+  padding: 10px 0;
+}
+
+.calendar_date {
+  padding: 10px 0;
+}
+
+.calendar_active_date {
+  color: black;
+  background: white;;
+  border-radius: 4px;
+}

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { SUBSCRIBE, UNSUBSCRIBE, GET_SUBSCRIBERS, SUBSCRIBER_ERROR } from './types'
+import { SUBSCRIBE, UNSUBSCRIBE, GET_SUBSCRIBERS, SUBSCRIBER_ERROR } from '@/actions/types'
 
 export const addSubscriber = async (dispatch, data) => {
   const config = { headers: { 'Content-Type': 'application/json' } }

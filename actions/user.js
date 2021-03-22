@@ -1,6 +1,6 @@
 import axios from 'axios'
-import setAuthToken from './../utils/setauthtoken'
-import { LOAD_USER, LOGIN_USER, LOGOUT_USER, USER_ERROR } from './types'
+import setAuthToken from '@/utils/setauthtoken'
+import { LOAD_USER, LOGIN_USER, LOGOUT_USER, USER_ERROR } from '@/actions/types'
 
 export const loadUser = async (dispatch, token) => {
   setAuthToken(token)

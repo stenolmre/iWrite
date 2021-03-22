@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { LOAD_LIKES, ADD_LIKE_ARR, REMOVE_LIKE_ARR } from './../actions/types'
+import { LOAD_LIKES, ADD_LIKE_ARR, REMOVE_LIKE_ARR } from '@/actions/types'
 
 export const initialState = {
   likes: []

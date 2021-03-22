@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react'
-import { initialState, LikeReducer } from './../reducers/like'
+import { initialState, LikeReducer } from '@/reducers/like'
 
 export const LikeStateCtx = createContext()
 export const LikeDispatchCtx = createContext()

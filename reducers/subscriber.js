@@ -1,4 +1,4 @@
-import { SUBSCRIBE, UNSUBSCRIBE, GET_SUBSCRIBERS, SUBSCRIBER_ERROR } from './../actions/types'
+import { SUBSCRIBE, UNSUBSCRIBE, GET_SUBSCRIBERS, SUBSCRIBER_ERROR } from '@/actions/types'
 
 export const initialState = {
   subscribers: [],

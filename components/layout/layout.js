@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 
-import Sidebar from './../components/sidebar'
-import Navbar from './../components/navbar'
-import Footbar from './../components/footbar'
+import Sidebar from '@/components/sidebar'
+import Navbar from '@/components/navbar'
+import Footbar from '@/components/footbar'
 
 const Layout = ({ children, poem, sidebarpoem, search }) => {
   return <Fragment>

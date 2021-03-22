@@ -1,8 +1,6 @@
 import React from 'react'
 import cookies from 'next-cookies'
 import Head from '@/utils/head'
-import dynamic from 'next/dynamic'
-const RichEditor = dynamic(() => import('@/components/editor'), { ssr: false })
 import axios from 'axios'
 
 import setAuthToken from '@/utils/setauthtoken'
@@ -11,6 +9,7 @@ import { addPoem } from '@/actions/poem'
 
 import Layout from '@/components/layout'
 import AdminNavigation from '@/components/adminnavigation'
+import Analytics from '@/components/analytics'
 
 const Add = ({ user_token }) => {
   const dispatchPoem = usePoemDispatch()
@@ -18,9 +17,8 @@ const Add = ({ user_token }) => {
   return <Layout>
     <Head title="Admin - Add Poem" url="https://www.iwrite.im/private/admin/add"/>
     <AdminNavigation />
-    <div className="admin_add">
-      <h2>Create</h2>
-      <RichEditor action={addPoem} dispatch={dispatchPoem}/>
+    <div className="analytics_page">
+      <Analytics/>
     </div>
   </Layout>
 }

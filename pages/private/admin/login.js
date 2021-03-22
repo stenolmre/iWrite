@@ -1,15 +1,15 @@
 import React, { Fragment, useState } from 'react'
 import cookies from 'next-cookies'
 import { useRouter } from 'next/router'
-import Head from './../../../utils/head'
+import Head from '@/utils/head'
 import axios from 'axios'
 
-import setAuthToken from './../../../utils/setauthtoken'
-import validateEmail from './../../../utils/validateemail'
-import { useUserDispatch } from './../../../context/user'
-import { login } from './../../../actions/user'
+import setAuthToken from '@/utils/setauthtoken'
+import validateEmail from '@/utils/validateemail'
+import { useUserDispatch } from '@/context/user'
+import { login } from '@/actions/user'
 
-import Layout from './../../../components/layout'
+import Layout from '@/components/layout'
 
 const Login = () => {
   const router = useRouter()

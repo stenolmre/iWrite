@@ -1,17 +1,17 @@
 import React, { Fragment,useEffect } from 'react'
 import cookies from 'next-cookies'
 import { useRouter } from 'next/router'
-import Head from './../../../utils/head'
+import Head from '@/utils/head'
 import axios from 'axios'
 
-import setAuthToken from './../../../utils/setauthtoken'
-import { useUserState, useUserDispatch } from './../../../context/user'
-import { loadUser, logout } from './../../../actions/user'
-import { useSubscriberState, useSubscriberDispatch } from './../../../context/subscriber'
-import { getSubscribers } from './../../../actions/subscriber'
+import setAuthToken from '@/utils/setauthtoken'
+import { useUserState, useUserDispatch } from '@/context/user'
+import { loadUser, logout } from '@/actions/user'
+import { useSubscriberState, useSubscriberDispatch } from '@/context/subscriber'
+import { getSubscribers } from '@/actions/subscriber'
 
-import Layout from './../../../components/layout'
-import AdminNavigation from './../../../components/adminnavigation'
+import Layout from '@/components/layout'
+import AdminNavigation from '@/components/adminnavigation'
 
 const Subscribers = ({ user_token }) => {
   const router = useRouter()

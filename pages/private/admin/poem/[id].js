@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react'
 import cookies from 'next-cookies'
 import { useRouter } from 'next/router'
-import Head from './../../../../utils/head'
+import Head from '@/utils/head'
 import axios from 'axios'
 
-import setAuthToken from './../../../../utils/setauthtoken'
-import { useUserDispatch } from './../../../../context/user'
-import { loadUser } from './../../../../actions/user'
-import { usePoemState, usePoemDispatch } from './../../../../context/poem'
-import { getPoem, removeComment, updatePoem } from './../../../../actions/poem'
+import setAuthToken from '@/utils/setauthtoken'
+import { useUserDispatch } from '@/context/user'
+import { loadUser } from '@/actions/user'
+import { usePoemState, usePoemDispatch } from '@/context/poem'
+import { getPoem, removeComment, updatePoem } from '@/actions/poem'
 
-import Layout from './../../../../components/layout'
-import AdminNavigation from './../../../../components/adminnavigation'
-import AdminPoem from './../../../../components/adminpoem'
+import Layout from '@/components/layout'
+import AdminNavigation from '@/components/adminnavigation'
+import AdminPoem from '@/components/adminpoem'
 
 const Index = ({ user_token }) => {
   const { query } = useRouter()

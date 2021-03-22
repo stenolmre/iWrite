@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react'
-import { initialState, PoemReducer } from './../reducers/poem'
+import { initialState, PoemReducer } from '@/reducers/poem'
 
 export const PoemStateCtx = createContext()
 export const PoemDispatchCtx = createContext()

@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react'
 import cookies from 'next-cookies'
 import Link from 'next/link'
-import Head from './../../../utils/head'
+import Head from '@/utils/head'
 import axios from 'axios'
 
-import setAuthToken from './../../../utils/setauthtoken'
-import { useUserDispatch } from './../../../context/user'
-import { loadUser } from './../../../actions/user'
-import { usePoemState, usePoemDispatch } from './../../../context/poem'
-import { getPoems, deletePoem } from './../../../actions/poem'
-import { useSubscriberState, useSubscriberDispatch } from './../../../context/subscriber'
-import { getSubscribers } from './../../../actions/subscriber'
+import setAuthToken from '@/utils/setauthtoken'
+import { useUserDispatch } from '@/context/user'
+import { loadUser } from '@/actions/user'
+import { usePoemState, usePoemDispatch } from '@/context/poem'
+import { getPoems, deletePoem } from '@/actions/poem'
+import { useSubscriberState, useSubscriberDispatch } from '@/context/subscriber'
+import { getSubscribers } from '@/actions/subscriber'
 
-import Layout from './../../../components/layout'
-import AdminNavigation from './../../../components/adminnavigation'
+import Layout from '@/components/layout'
+import AdminNavigation from '@/components/adminnavigation'
 
 const Dashboard = ({ user_token }) => {
   const dispatchUser = useUserDispatch()

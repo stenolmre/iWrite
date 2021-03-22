@@ -2,11 +2,11 @@ import React, { Fragment, useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import { useLikeState, useLikeDispatch } from './../context/like'
-import { addToLikes, removeFromLikes } from './../actions/like'
-import { addLike, removeLike } from './../actions/poem'
+import { useLikeState, useLikeDispatch } from '@/context/like'
+import { addToLikes, removeFromLikes } from '@/actions/like'
+import { addLike, removeLike } from '@/actions/poem'
 
-import Comments from './comments'
+import Comments from '@/components/comments'
 
 const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData, likeCount }) => {
   const { query } = useRouter()

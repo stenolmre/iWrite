@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
-import { useLikeDispatch } from './../context/like'
-import { loadLikes } from './../actions/like'
+import { useLikeDispatch } from '@/context/like'
+import { loadLikes } from '@/actions/like'
 
 const LoadLikes = ({ children }) => {
   const dispatchLike = useLikeDispatch()

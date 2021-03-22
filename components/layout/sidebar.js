@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-import validateEmail from './../utils/validateemail'
+import validateEmail from '@/utils/validateemail'
 
-import { useSubscriberState, useSubscriberDispatch } from './../context/subscriber'
-import { addSubscriber } from './../actions/subscriber'
+import { useSubscriberState, useSubscriberDispatch } from '@/context/subscriber'
+import { addSubscriber } from '@/actions/subscriber'
 
 const Sidebar = ({ sidebarpoem }) => {
   const dispatchSubscriber = useSubscriberDispatch()

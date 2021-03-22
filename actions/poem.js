@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ADD_POEM, GET_POEM, GET_POEMS, UPDATE_POEM, DELETE_POEM, POEM_ERROR, ADD_LIKE, ADD_COMMENT, REMOVE_LIKE, REMOVE_COMMENT } from './../actions/types'
+import { ADD_POEM, GET_POEM, GET_POEMS, UPDATE_POEM, DELETE_POEM, POEM_ERROR, ADD_LIKE, ADD_COMMENT, REMOVE_LIKE, REMOVE_COMMENT } from '@/actions/types'
 
 export const addPoem = async (dispatch, data) => {
   const config = { headers: { 'Content-Type': 'application/json' } }

@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { LOAD_USER, LOGIN_USER, LOGOUT_USER, USER_ERROR } from './../actions/types'
+import { LOAD_USER, LOGIN_USER, LOGOUT_USER, USER_ERROR } from '@/actions/types'
 
 export const initialState = {
   user: null,

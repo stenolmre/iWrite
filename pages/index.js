@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react'
-import Head from './../utils/head'
+import Head from '@/utils/head'
 
-import Layout from './../components/layout'
-import Poems from './../components/poems'
+import Layout from '@/components/layout'
+import Poems from '@/components/poems'
 
 const Index = () => {
   const [search, setSearch] = useState('')

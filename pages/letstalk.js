@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from 'react'
 import emailjs from 'emailjs-com'
-import Head from './../utils/head'
+import Head from '@/utils/head'
 
-import Layout from './../components/layout'
+import Layout from '@/components/layout'
 
-import validateEmail from './../utils/validateemail'
+import validateEmail from '@/utils/validateemail'
 
 const Contact = () => {
   const [formData, setFormData] = useState({ email: '', message: '' })

@@ -1,4 +1,4 @@
-import { LOAD_LIKES, ADD_LIKE_ARR, REMOVE_LIKE_ARR } from './types'
+import { LOAD_LIKES, ADD_LIKE_ARR, REMOVE_LIKE_ARR } from '@/actions/types'
 
 export const loadLikes = async (dispatch) => {
   dispatch({
