@@ -227,6 +227,8 @@ nav {
   width: 35px;
   height: 35px;
   border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .sidebar h1 {
@@ -378,10 +380,21 @@ nav {
   }
 }
 
+.poem_page {
+  padding: 50px 25px 125px 25px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.poem_page .poem {
+  width: 100%;
+}
+
 /* =======POEM=LAYOUT===================================== */
 .poem {
-  width: auto;
-  min-width: 250px;
+  width: 250px;
   margin: 10px;
   padding: 10px 20px 20px 20px;
   border-radius: 24px;
@@ -408,12 +421,6 @@ nav {
 
 .poem small {
   color: rgba(255, 255, 255, .4);
-}
-
-.poem-text {
-  padding: 25px 0;
-  font-weight: 400;
-  color: #fff;
 }
 
 .poem-text p {

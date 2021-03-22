@@ -40,7 +40,7 @@ const Sidebar = ({ sidebarpoem }) => {
   return <div className="sidebar">
     <div className="sidebar_header">
       <h1>iWrite</h1>
-      <img src="/img.jpg" alt="author" />
+      <img src="https://images.pexels.com/photos/57690/pexels-photo-57690.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="author" />
     </div>
     <p>iWrite purpose is to offer you a flight across the space created in one's mind.</p>
     {

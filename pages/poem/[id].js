@@ -23,7 +23,7 @@ const PoemPage = ({ poem_name }) => {
   return <Fragment>
     <Head title={`iWrite - ${poem_name}`} url="https://www.iwrite.im/"/>
     <Layout>
-      <div className="poems">
+      <div className="poem_page">
         {
           loading
             ? <Loader />

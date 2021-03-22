@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -23,7 +23,7 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData, li
 
     setTimeout(() => {
       setShowCopyMessage(false)
-    }, 4000)
+    }, 2000)
   }
 
   const content = () => {
@@ -48,6 +48,23 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData, li
     }
   }
 
+  const poemDiv = useRef(null)
+  const [numOfLines, setNumOfLines] = useState(0)
+  const [poemLineHeight, setPoemLineHeight] = useState()
+
+  useEffect(() => {
+    const styles = getComputedStyle(poemDiv.current)
+
+    const poemDivHeight = poemDiv.current ? poemDiv.current.offsetHeight : 1
+    const poemDivLineHeight = parseInt(styles.lineHeight)
+
+    const poemLines = poemDivHeight / poemDivLineHeight
+
+    setNumOfLines(poemLines)
+    setPoemLineHeight(poemDivLineHeight)
+  }, [])
+
+
   return <div className="poem">
     {
       poem
@@ -58,9 +75,10 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData, li
     {
       poem
         ? <Link href={`/poem/${id}?${linkName}`}><a>
-            <div dangerouslySetInnerHTML={content()} className="poem-text"/>
+            <div dangerouslySetInnerHTML={content()} className="poem-text poem-text-short" ref={poemDiv}/>
+            <p style={{ margin: '0 0 25px 0', lineHeight: '1.5', color: '#fff' }}>...</p>
           </a></Link>
-        : <div dangerouslySetInnerHTML={content()} className="poem-text"/>
+        : <div dangerouslySetInnerHTML={content()} className="poem-text" ref={poemDiv}/>
     }
     <div className="poem_social">
       {
@@ -82,7 +100,7 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData, li
       </a>
       <i className="fas fa-link" onClick={linkIsCopied}/>
       {
-        showCopyMessage && <span>Copied to clipboard</span>
+        showCopyMessage && <span style={{ fontSize: '.75rem' }}>Copied</span>
       }
     </div>
     {
@@ -101,6 +119,19 @@ const Poem = ({ id, name, date, text, poem, dispatchPoem, linkName, poemData, li
               <Comments poem={poemData}/>
             </Fragment>
     }
+    <style jsx>{`
+      .poem-text-short {
+        height: ${poemLineHeight * 6 + 5}px;
+      }
+
+      .poem-text {
+        line-height: 1.5;
+        overflow: hidden;
+        padding: 25px 0;
+        font-weight: 400;
+        color: #fff;
+      }
+    `}</style>
   </div>
 }
 
